@@ -10,3 +10,6 @@ parts:
       - file: tutorials/2_defining_a_task
       - file: tutorials/3_training_a_neural_tree
       - file: tutorials/4_guided_diffusion
+  - caption: API
+    chapters:
+      - file: api

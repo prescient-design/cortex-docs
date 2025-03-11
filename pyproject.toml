@@ -9,6 +9,7 @@ dependencies = [
     "jupyter-book",
     "ghp-import",
     "jupytext",
+    "sphinx-autoapi",
 ]
 
 
