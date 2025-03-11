@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Tutorials
+    chapters:
+      - file: tutorials/1_neural_tree_anatomy
+      - file: tutorials/2_defining_a_task
+      - file: tutorials/3_training_a_neural_tree
+      - file: tutorials/4_guided_diffusion
