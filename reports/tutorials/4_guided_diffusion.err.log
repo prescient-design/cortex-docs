@@ -1,0 +1,231 @@
+Traceback (most recent call last):
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import lightning as L
+
+# set random seed
+L.seed_everything(seed=cfg.random_seed, workers=True)
+
+# instantiate model
+model = hydra.utils.instantiate(cfg.tree)
+model.build_tree(cfg, skip_task_setup=False)
+
+# instantiate trainer, set logger
+trainer = hydra.utils.instantiate(cfg.trainer)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyboardInterrupt[0m                         Traceback (most recent call last)
+Cell [0;32mIn[3], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mL[39;00m
+[1;32m      3[0m [38;5;66;03m# set random seed[39;00m
+[1;32m      4[0m L[38;5;241m.[39mseed_everything(seed[38;5;241m=[39mcfg[38;5;241m.[39mrandom_seed, workers[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+
+File [0;32m<frozen importlib._bootstrap>:1027[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
+
+File [0;32m<frozen importlib._bootstrap>:1006[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+
+File [0;32m<frozen importlib._bootstrap>:688[0m, in [0;36m_load_unlocked[0;34m(spec)[0m
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/wandb/sdk/lib/import_hooks.py:182[0m, in [0;36m_ImportHookChainedLoader._exec_module[0;34m(self, module)[0m
+[1;32m    180[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m_exec_module[39m([38;5;28mself[39m, module: Any) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[1;32m    181[0m     [38;5;28mself[39m[38;5;241m.[39m_set_loader(module)
+[0;32m--> 182[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mloader[49m[38;5;241;43m.[39;49m[43mexec_module[49m[43m([49m[43mmodule[49m[43m)[49m
+[1;32m    183[0m     notify_module_loaded(module)
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/__init__.py:32[0m
+[1;32m     30[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01m__about__[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m  [38;5;66;03m# noqa: E402, F401, F403[39;00m
+[1;32m     31[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01m__version__[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m version [38;5;28;01mas[39;00m __version__  [38;5;66;03m# noqa: E402, F401[39;00m
+[0;32m---> 32[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m storage  [38;5;66;03m# noqa: E402[39;00m
+[1;32m     33[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m LightningApp  [38;5;66;03m# noqa: E402[39;00m
+[1;32m     34[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mflow[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m LightningFlow  [38;5;66;03m# noqa: E402[39;00m
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/__init__.py:25[0m
+[1;32m     21[0m     _logger[38;5;241m.[39mpropagate [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[1;32m     24[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m __about__  [38;5;66;03m# noqa: E402[39;00m
+[0;32m---> 25[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m components  [38;5;66;03m# noqa: E402, F401[39;00m
+[1;32m     26[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01m__about__[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m  [38;5;66;03m# noqa: E402, F401, F403[39;00m
+[1;32m     28[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mhasattr[39m(__about__, [38;5;124m"[39m[38;5;124m__version__[39m[38;5;124m"[39m):
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/components/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatabase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DatabaseClient
+[1;32m      2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatabase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mserver[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Database
+[1;32m      3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmulti_node[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
+[1;32m      4[0m     LightningTrainerMultiNode,
+[1;32m      5[0m     LiteMultiNode,
+[1;32m      6[0m     MultiNode,
+[1;32m      7[0m     PyTorchSpawnMultiNode,
+[1;32m      8[0m )
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/components/database/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatabase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mclient[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DatabaseClient
+[1;32m      2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatabase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mserver[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Database
+[1;32m      4[0m __all__ [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mDatabase[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mDatabaseClient[39m[38;5;124m"[39m]
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/components/database/client.py:22[0m
+[1;32m     19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mrequests[39;00m[38;5;21;01m.[39;00m[38;5;21;01madapters[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m HTTPAdapter
+[1;32m     20[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01murllib3[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutil[39;00m[38;5;21;01m.[39;00m[38;5;21;01mretry[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Retry
+[0;32m---> 22[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomponents[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatabase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutilities[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _GeneralModel
+[1;32m     24[0m _CONNECTION_RETRY_TOTAL [38;5;241m=[39m [38;5;241m5[39m
+[1;32m     25[0m _CONNECTION_RETRY_BACKOFF_FACTOR [38;5;241m=[39m [38;5;241m1[39m
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/components/database/utilities.py:25[0m
+[1;32m     22[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpydantic[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseModel, parse_obj_as
+[1;32m     23[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpydantic[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ModelMetaclass
+[0;32m---> 25[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutilities[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp_helpers[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Logger
+[1;32m     26[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutilities[39;00m[38;5;21;01m.[39;00m[38;5;21;01mimports[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _is_sqlmodel_available
+[1;32m     28[0m [38;5;28;01mif[39;00m _is_sqlmodel_available():
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning/app/utilities/app_helpers.py:36[0m
+[1;32m     34[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mwebsockets[39;00m
+[1;32m     35[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mdeepdiff[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Delta
+[0;32m---> 36[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01mopenapi[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AppinstancesIdBody, Externalv1LightningappInstance, V1LightningappInstanceState
+[1;32m     38[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m
+[1;32m     39[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapp[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutilities[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexceptions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m LightningAppStateException
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning_cloud/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01msource_code[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m LocalSourceCodeDir
+[1;32m      2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01m__version__[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m __version__
+[1;32m      4[0m __all__ [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mLocalSourceCodeDir[39m[38;5;124m"[39m]
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning_cloud/source_code/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01msource_code[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlocal[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m LocalSourceCodeDir
+[1;32m      3[0m __all__ [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mLocalSourceCodeDir[39m[38;5;124m"[39m]
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning_cloud/source_code/local.py:10[0m
+[1;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01msource_code[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhashing[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_hash
+[1;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01msource_code[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtar[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m tar_path
+[0;32m---> 10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mlightning_cloud[39;00m[38;5;21;01m.[39;00m[38;5;21;01msource_code[39;00m[38;5;21;01m.[39;00m[38;5;21;01muploader[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m FileUploader
+[1;32m     13[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mLocalSourceCodeDir[39;00m:
+[1;32m     14[0m [38;5;250m    [39m[38;5;124;03m"""Represents the source code directory and provide the utilities to manage it"""[39;00m
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/lightning_cloud/source_code/uploader.py:5[0m
+[1;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mrequests[39;00m
+[1;32m      4[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mrequests[39;00m[38;5;21;01m.[39;00m[38;5;21;01madapters[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m HTTPAdapter
+[0;32m----> 5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mrich[39;00m[38;5;21;01m.[39;00m[38;5;21;01mprogress[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BarColumn, Progress, TextColumn
+[1;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01murllib3[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutil[39;00m[38;5;21;01m.[39;00m[38;5;21;01mretry[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Retry
+[1;32m      9[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mFileUploader[39;00m:
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/progress.py:48[0m
+[1;32m     45[0m     [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mtyping_extensions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Self  [38;5;66;03m# pragma: no cover[39;00m
+[1;32m     47[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m filesize, get_console
+[0;32m---> 48[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mconsole[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Console, Group, JustifyMethod, RenderableType
+[1;32m     49[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mhighlighter[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Highlighter
+[1;32m     50[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mjupyter[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m JupyterMixin
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/console.py:46[0m
+[1;32m     39[0m [38;5;28;01melse[39;00m:
+[1;32m     40[0m     [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mtyping_extensions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
+[1;32m     41[0m         Literal,
+[1;32m     42[0m         Protocol,
+[1;32m     43[0m         runtime_checkable,
+[1;32m     44[0m     )  [38;5;66;03m# pragma: no cover[39;00m
+[0;32m---> 46[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m errors, themes
+[1;32m     47[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_emoji_replace[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _emoji_replace
+[1;32m     48[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_export_format[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m CONSOLE_HTML_FORMAT, CONSOLE_SVG_FORMAT
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/themes.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mdefault_styles[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DEFAULT_STYLES
+[1;32m      2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mtheme[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Theme
+[1;32m      5[0m DEFAULT [38;5;241m=[39m Theme(DEFAULT_STYLES)
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/default_styles.py:3[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mtyping[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Dict
+[0;32m----> 3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mstyle[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Style
+[1;32m      5[0m DEFAULT_STYLES: Dict[[38;5;28mstr[39m, Style] [38;5;241m=[39m {
+[1;32m      6[0m     [38;5;124m"[39m[38;5;124mnone[39m[38;5;124m"[39m: Style[38;5;241m.[39mnull(),
+[1;32m      7[0m     [38;5;124m"[39m[38;5;124mreset[39m[38;5;124m"[39m: Style(
+[0;32m   (...)[0m
+[1;32m    166[0m     [38;5;124m"[39m[38;5;124miso8601.timezone[39m[38;5;124m"[39m: Style(color[38;5;241m=[39m[38;5;124m"[39m[38;5;124myellow[39m[38;5;124m"[39m),
+[1;32m    167[0m }
+[1;32m    170[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m"[39m[38;5;124m__main__[39m[38;5;124m"[39m:  [38;5;66;03m# pragma: no cover[39;00m
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/style.py:8[0m
+[1;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mtyping[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Any, Dict, Iterable, List, Optional, Type, Union, cast
+[1;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m errors
+[0;32m----> 8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mcolor[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Color, ColorParseError, ColorSystem, blend_rgb
+[1;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mrepr[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Result, rich_repr
+[1;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mterminal_theme[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DEFAULT_TERMINAL_THEME, TerminalTheme
+
+File [0;32m~/.venv/cortex-docs/lib/python3.10/site-packages/rich/color.py:292[0m
+[1;32m    288[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mColorParseError[39;00m([38;5;167;01mException[39;00m):
+[1;32m    289[0m [38;5;250m    [39m[38;5;124;03m"""The color could not be parsed."""[39;00m
+[0;32m--> 292[0m RE_COLOR [38;5;241m=[39m [43mre[49m[38;5;241;43m.[39;49m[43mcompile[49m[43m([49m
+[1;32m    293[0m [38;5;250;43m    [39;49m[38;5;124;43mr[39;49m[38;5;124;43;03m"""^[39;49;00m
+[1;32m    294[0m [38;5;124;43;03m\#([0-9a-f]{6})$|[39;49;00m
+[1;32m    295[0m [38;5;124;43;03mcolor\(([0-9]{1,3})\)$|[39;49;00m
+[1;32m    296[0m [38;5;124;43;03mrgb\(([\d\s,]+)\)$[39;49;00m
+[1;32m    297[0m [38;5;124;43;03m"""[39;49;00m[43m,[49m
+[1;32m    298[0m [43m    [49m[43mre[49m[38;5;241;43m.[39;49m[43mVERBOSE[49m[43m,[49m
+[1;32m    299[0m [43m)[49m
+[1;32m    302[0m [38;5;129m@rich_repr[39m
+[1;32m    303[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mColor[39;00m(NamedTuple):
+[1;32m    304[0m [38;5;250m    [39m[38;5;124;03m"""Terminal color definition."""[39;00m
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/re.py:251[0m, in [0;36mcompile[0;34m(pattern, flags)[0m
+[1;32m    249[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21mcompile[39m(pattern, flags[38;5;241m=[39m[38;5;241m0[39m):
+[1;32m    250[0m     [38;5;124m"[39m[38;5;124mCompile a regular expression pattern, returning a Pattern object.[39m[38;5;124m"[39m
+[0;32m--> 251[0m     [38;5;28;01mreturn[39;00m [43m_compile[49m[43m([49m[43mpattern[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/re.py:303[0m, in [0;36m_compile[0;34m(pattern, flags)[0m
+[1;32m    301[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m sre_compile[38;5;241m.[39misstring(pattern):
+[1;32m    302[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mfirst argument must be string or compiled pattern[39m[38;5;124m"[39m)
+[0;32m--> 303[0m p [38;5;241m=[39m [43msre_compile[49m[38;5;241;43m.[39;49m[43mcompile[49m[43m([49m[43mpattern[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+[1;32m    304[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m (flags [38;5;241m&[39m DEBUG):
+[1;32m    305[0m     [38;5;28;01mif[39;00m [38;5;28mlen[39m(_cache) [38;5;241m>[39m[38;5;241m=[39m _MAXCACHE:
+[1;32m    306[0m         [38;5;66;03m# Drop the oldest item[39;00m
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/sre_compile.py:792[0m, in [0;36mcompile[0;34m(p, flags)[0m
+[1;32m    789[0m [38;5;28;01melse[39;00m:
+[1;32m    790[0m     pattern [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[0;32m--> 792[0m code [38;5;241m=[39m [43m_code[49m[43m([49m[43mp[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+[1;32m    794[0m [38;5;28;01mif[39;00m flags [38;5;241m&[39m SRE_FLAG_DEBUG:
+[1;32m    795[0m     [38;5;28mprint[39m()
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/sre_compile.py:628[0m, in [0;36m_code[0;34m(p, flags)[0m
+[1;32m    625[0m code [38;5;241m=[39m []
+[1;32m    627[0m [38;5;66;03m# compile info block[39;00m
+[0;32m--> 628[0m [43m_compile_info[49m[43m([49m[43mcode[49m[43m,[49m[43m [49m[43mp[49m[43m,[49m[43m [49m[43mflags[49m[43m)[49m
+[1;32m    630[0m [38;5;66;03m# compile the pattern[39;00m
+[1;32m    631[0m _compile(code, p[38;5;241m.[39mdata, flags)
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/sre_compile.py:564[0m, in [0;36m_compile_info[0;34m(code, pattern, flags)[0m
+[1;32m    560[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m_compile_info[39m(code, pattern, flags):
+[1;32m    561[0m     [38;5;66;03m# internal: compile an info block.  in the current version,[39;00m
+[1;32m    562[0m     [38;5;66;03m# this contains min/max pattern width, and an optional literal[39;00m
+[1;32m    563[0m     [38;5;66;03m# prefix or a character map[39;00m
+[0;32m--> 564[0m     lo, hi [38;5;241m=[39m [43mpattern[49m[38;5;241;43m.[39;49m[43mgetwidth[49m[43m([49m[43m)[49m
+[1;32m    565[0m     [38;5;28;01mif[39;00m hi [38;5;241m>[39m MAXCODE:
+[1;32m    566[0m         hi [38;5;241m=[39m MAXCODE
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/sre_parse.py:185[0m, in [0;36mSubPattern.getwidth[0;34m(self)[0m
+[1;32m    183[0m j [38;5;241m=[39m [38;5;241m0[39m
+[1;32m    184[0m [38;5;28;01mfor[39;00m av [38;5;129;01min[39;00m av[[38;5;241m1[39m]:
+[0;32m--> 185[0m     l, h [38;5;241m=[39m [43mav[49m[38;5;241;43m.[39;49m[43mgetwidth[49m[43m([49m[43m)[49m
+[1;32m    186[0m     i [38;5;241m=[39m [38;5;28mmin[39m(i, l)
+[1;32m    187[0m     j [38;5;241m=[39m [38;5;28mmax[39m(j, h)
+
+File [0;32m/usr/local/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/sre_parse.py:197[0m, in [0;36mSubPattern.getwidth[0;34m(self)[0m
+[1;32m    195[0m     i, j [38;5;241m=[39m av[[38;5;241m-[39m[38;5;241m1[39m][38;5;241m.[39mgetwidth()
+[1;32m    196[0m     lo [38;5;241m=[39m lo [38;5;241m+[39m i
+[0;32m--> 197[0m     hi [38;5;241m=[39m hi [38;5;241m+[39m j
+[1;32m    198[0m [38;5;28;01melif[39;00m op [38;5;129;01min[39;00m _REPEATCODES:
+[1;32m    199[0m     i, j [38;5;241m=[39m av[[38;5;241m2[39m][38;5;241m.[39mgetwidth()
+
+[0;31mKeyboardInterrupt[0m: 
+

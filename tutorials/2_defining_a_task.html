@@ -1,0 +1,825 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Defining a Task &#8212; Cortex Docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/2_defining_a_task';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Training a Neural Tree" href="3_training_a_neural_tree.html" />
+    <link rel="prev" title="Anatomy of a Neural Tree" href="1_neural_tree_anatomy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cortex Docs - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cortex Docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    cortex: A Modular Architecture for Deep Learning Systems 🧠
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_neural_tree_anatomy.html">Anatomy of a Neural Tree</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Defining a Task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="3_training_a_neural_tree.html">Training a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/prescient-design/cortex-docs/blob/master/docs/tutorials/2_defining_a_task.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs/issues/new?title=Issue%20on%20page%20%2Ftutorials/2_defining_a_task.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tutorials/2_defining_a_task.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Defining a Task</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Defining a Task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dataset">A Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-data-module">A Task Data Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-object">A Task object</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-task-loss">Computing a task loss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-task-output">Evaluating task output</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="defining-a-task">
+<h1>Defining a Task<a class="headerlink" href="#defining-a-task" title="Link to this heading">#</a></h1>
+<p>In the last tutorial we learned the basic structure of a <code class="docutils literal notranslate"><span class="pre">NeuralTree</span></code>. In this section we will explore <code class="docutils literal notranslate"><span class="pre">Task</span></code> objects, which define the interface
+between a <code class="docutils literal notranslate"><span class="pre">NeuralTree</span></code> and the datasets we will use to train it.</p>
+<section id="a-dataset">
+<h2>A Dataset<a class="headerlink" href="#a-dataset" title="Link to this heading">#</a></h2>
+<p>Every task starts with a dataset. In this example we will use the GFP fluorescence dataset (TODO add link).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cortex.data.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAPEFluorescenceDataset</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">TAPEFluorescenceDataset</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;./.cache&#39;</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;tokenized_seq&#39;,
+              &#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H K I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E R Y K&#39;),
+             (&#39;log_fluorescence&#39;, 3.8237006664276123)])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-task-data-module">
+<h2>A Task Data Module<a class="headerlink" href="#a-task-data-module" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">cortex</span></code> package uses the <code class="docutils literal notranslate"><span class="pre">lightning</span></code> package to handle data loading and distributed training.
+The <code class="docutils literal notranslate"><span class="pre">TaskDataModule</span></code> subclasses <code class="docutils literal notranslate"><span class="pre">lightning.DataModule</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cortex.data.data_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskDataModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omegaconf</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictConfig</span>
+
+<span class="n">dataset_cfg</span> <span class="o">=</span> <span class="n">DictConfig</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;_target_&#39;</span><span class="p">:</span> <span class="s1">&#39;cortex.data.dataset.TAPEFluorescenceDataset&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="s1">&#39;./.cache&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;download&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="s2">&quot;???&quot;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">data_module</span> <span class="o">=</span> <span class="n">TaskDataModule</span><span class="p">(</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">dataset_config</span><span class="o">=</span><span class="n">dataset_cfg</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">()</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;tokenized_seq&#39;, [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G R L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R I I F F E D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;, &#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M R Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G T D F K E D G N I L G H K L E Y N Y N S H S V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;]), (&#39;log_fluorescence&#39;, [3.7387540340423584, 3.6851398944854736]), (&#39;batch_size&#39;, 2)])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-task-object">
+<h2>A Task object<a class="headerlink" href="#a-task-object" title="Link to this heading">#</a></h2>
+<p>A task object in <code class="docutils literal notranslate"><span class="pre">cortex</span></code> determines how a batch of data from a dataloader is passed to a <code class="docutils literal notranslate"><span class="pre">NeuralTree</span></code> during training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cortex.task</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegressionTask</span>
+
+<span class="n">task</span> <span class="o">=</span> <span class="n">RegressionTask</span><span class="p">(</span>
+    <span class="n">data_module</span><span class="o">=</span><span class="n">data_module</span><span class="p">,</span>
+    <span class="n">input_map</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;protein_seq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tokenized_seq&quot;</span><span class="p">]},</span>  <span class="c1"># {root_key: [input_key]}</span>
+    <span class="n">outcome_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;log_fluorescence&quot;</span><span class="p">],</span>  <span class="c1"># [*target_keys]</span>
+    <span class="n">leaf_key</span><span class="o">=</span><span class="s2">&quot;log_fluorescence_0&quot;</span>  <span class="c1"># name of leaf node</span>
+<span class="p">)</span>
+
+<span class="n">formatted_batch</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">format_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_batch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;root_inputs&#39;: {&#39;protein_seq&#39;: {&#39;inputs&#39;: array([[&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G R L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R I I F F E D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;],
+       [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M R Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G T D F K E D G N I L G H K L E Y N Y N S H S V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;]],
+      dtype=&#39;&lt;U473&#39;), &#39;corrupt_frac&#39;: None}}, &#39;leaf_targets&#39;: {&#39;log_fluorescence_0&#39;: {&#39;targets&#39;: array([[3.73875403],
+       [3.68513989]])}}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
+<p>Now we will instantiate the a <code class="docutils literal notranslate"><span class="pre">NeuralTree</span></code> similar to the last tutorial, however we will use Hydra to simplify the instantiation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">hydra</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omegaconf</span><span class="w"> </span><span class="kn">import</span> <span class="n">OmegaConf</span>
+
+<span class="k">with</span> <span class="n">hydra</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;./hydra&quot;</span><span class="p">):</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_name</span><span class="o">=</span><span class="s2">&quot;2_defining_a_task&quot;</span><span class="p">)</span>
+    <span class="n">OmegaConf</span><span class="o">.</span><span class="n">set_struct</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">tree</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">build_tree</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/yh/yjy4n_mn0c98wplbl82vv0dm0000gp/T/ipykernel_12794/877463992.py:4: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  with hydra.initialize(config_path=&quot;./hydra&quot;):
+/Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In &#39;2_defining_a_task&#39;: Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>using vocab from /Users/stantos5/.venv/cortex-docs/lib/python3.10/site-packages/cortex/assets/protein_seq_tokenizer_32/vocab.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SequenceModelTree(
+  (root_nodes): ModuleDict(
+    (protein_seq): Conv1dRoot(
+      (tok_encoder): Embedding(32, 16, padding_idx=1)
+      (pos_encoder): SinePosEncoder(
+        (dropout): Dropout(p=0.0, inplace=False)
+      )
+      (encoder): Sequential(
+        (0): Apply(
+          (module): Expression()
+        )
+        (1): Conv1dResidBlock(
+          (conv_1): Conv1d(16, 16, kernel_size=(3,), stride=(1,), padding=same, bias=False)
+          (conv_2): Conv1d(16, 16, kernel_size=(3,), stride=(1,), padding=same, bias=False)
+          (norm_1): MaskLayerNorm1d((16, 1), eps=1e-05, elementwise_affine=True)
+          (norm_2): MaskLayerNorm1d((16, 1), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+        (2): Conv1dResidBlock(
+          (conv_1): Conv1d(16, 16, kernel_size=(3,), stride=(1,), padding=same, bias=False)
+          (conv_2): Conv1d(16, 16, kernel_size=(3,), stride=(1,), padding=same, bias=False)
+          (norm_1): MaskLayerNorm1d((16, 1), eps=1e-05, elementwise_affine=True)
+          (norm_2): MaskLayerNorm1d((16, 1), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+        (3): Apply(
+          (module): Expression()
+        )
+      )
+      (train_transform): Sequential(
+        (0): HuggingFaceTokenizerTransform()
+        (1): ToTensor()
+        (2): PadTransform()
+      )
+      (eval_transform): Sequential(
+        (0): HuggingFaceTokenizerTransform()
+        (1): ToTensor()
+        (2): PadTransform()
+      )
+    )
+  )
+  (branch_nodes): ModuleDict(
+    (protein_property_0): Conv1dBranch(
+      (encoder): Sequential(
+        (0): Apply(
+          (module): Linear(in_features=16, out_features=8, bias=False)
+        )
+      )
+      (pooling_op): MeanPooling()
+    )
+  )
+  (leaf_nodes): ModuleDict(
+    (log_fluorescence_0): RegressorLeaf(
+      (encoder): Sequential(
+        (0): Linear(in_features=8, out_features=2, bias=True)
+      )
+      (outcome_transform): DDPStandardize()
+    )
+  )
+  (trunk_node): SumTrunk(
+    (encoder): Expression()
+  )
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_output</span> <span class="o">=</span> <span class="n">tree</span><span class="p">(</span><span class="n">formatted_batch</span><span class="p">[</span><span class="s2">&quot;root_inputs&quot;</span><span class="p">])</span>
+<span class="n">tree_output</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="s2">&quot;log_fluorescence_0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.0164],
+        [0.0156]], grad_fn=&lt;MulBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="computing-a-task-loss">
+<h2>Computing a task loss<a class="headerlink" href="#computing-a-task-loss" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaf_key</span> <span class="o">=</span> <span class="s2">&quot;log_fluorescence_0&quot;</span>
+<span class="n">leaf_node</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">leaf_key</span><span class="p">]</span>
+
+<span class="n">loss</span> <span class="o">=</span> <span class="n">leaf_node</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span>
+    <span class="n">leaf_outputs</span><span class="o">=</span><span class="n">tree_output</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="n">leaf_key</span><span class="p">],</span>
+    <span class="n">root_outputs</span><span class="o">=</span><span class="n">tree_output</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="s2">&quot;protein_seq&quot;</span><span class="p">],</span>
+    <span class="o">**</span><span class="n">formatted_batch</span><span class="p">[</span><span class="s2">&quot;leaf_targets&quot;</span><span class="p">][</span><span class="n">leaf_key</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(17.8404, grad_fn=&lt;MulBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-task-output">
+<h2>Evaluating task output<a class="headerlink" href="#evaluating-task-output" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaf_node</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="n">tree_output</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="n">leaf_key</span><span class="p">],</span>
+    <span class="o">**</span><span class="n">formatted_batch</span><span class="p">[</span><span class="s2">&quot;leaf_targets&quot;</span><span class="p">][</span><span class="n">leaf_key</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nll&#39;: 17.84036636352539,
+ &#39;nrmse&#39;: 0.9956903457641602,
+ &#39;s_rho&#39;: 0.9999999999999999}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_neural_tree_anatomy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Anatomy of a Neural Tree</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3_training_a_neural_tree.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Training a Neural Tree</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Defining a Task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dataset">A Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-data-module">A Task Data Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-object">A Task object</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-task-loss">Computing a task loss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-task-output">Evaluating task output</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Samuel D. Stanton
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
