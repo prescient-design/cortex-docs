@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source .venv/bin/activate
+source ~/.venv/cortex-docs/bin/activate
+export UV_PROJECT_ENVIRONMENT=$VIRTUAL_ENV
 
 # Step 1: Build the JupyterBook documentation
 jupyter-book build docs
