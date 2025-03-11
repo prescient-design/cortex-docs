@@ -1,0 +1,23 @@
+[project]
+name = "cortex-docs"
+readme = "README.md"
+description = "Documentation for Cortex: A Modular Architecture for Deep Learning Systems."
+authors = [{name = "Samuel D. Stanton", email = "stanton.samuel@gene.com"}]
+dynamic = ["version", "optional-dependencies"]
+requires-python = "<3.11"
+dependencies = [
+    "jupyter-book",
+    "ghp-import",
+    "jupytext",
+]
+
+
+[build-system]
+requires = ["setuptools >= 65", "setuptools_scm[toml]>=6.2"]
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+search_parent_directories = true
+version_scheme = "no-guess-dev"
+fallback_version = "0.0.0"
+local_scheme = "no-local-version" # see https://github.com/pypa/setuptools-scm/issues/455
