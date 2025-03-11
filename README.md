@@ -4,6 +4,9 @@ This repo contains a `jupyter-book` with documentation for [`cortex`](https://gi
 ### Building the documentation
 Create a virtual environment with `uv` or a conda environment with `mamba`. Install requirements with
 ```bash
+uv venv -n ~/.venv/cortex-docs --python 3.10
+source ~/.venv/cortex-docs/bin/activate
+export UV_PROJECT_ENVIRONMENT=$VIRTUAL_ENV
 uv pip install -r requirements.in
 ``` 
 
