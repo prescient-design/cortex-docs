@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cortex.acquisition._graph_nei &#8212; Cortex Docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/cortex/acquisition/_graph_nei';</script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Cortex Docs - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Cortex Docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    cortex: A Modular Architecture for Deep Learning Systems 🧠
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/1_neural_tree_anatomy.html">Anatomy of a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/2_defining_a_task.html">Defining a Task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/3_training_a_neural_tree.html">Training a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs/issues/new?title=Issue%20on%20page%20%2F_modules/cortex/acquisition/_graph_nei.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for cortex.acquisition._graph_nei</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.acquisition.logei</span><span class="w"> </span><span class="kn">import</span> <span class="n">qLogExpectedImprovement</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.acquisition.multi_objective.logei</span><span class="w"> </span><span class="kn">import</span> <span class="n">qLogExpectedHypervolumeImprovement</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.acquisition.objective</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdentityMCObjective</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.utils.multi_objective.box_decompositions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastNondominatedPartitioning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.utils.multi_objective.hypervolume</span><span class="w"> </span><span class="kn">import</span> <span class="n">infer_reference_point</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.utils.multi_objective.pareto</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_non_dominated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeuralTree</span><span class="p">,</span> <span class="n">NeuralTreeOutput</span>
+
+<span class="n">GRAPH_OBJECTIVES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;stability&quot;</span><span class="p">,</span> <span class="s2">&quot;log_fluorescence&quot;</span><span class="p">]</span>
+<span class="n">GRAPH_CONSTRAINTS</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># rescale stability and log_fluorescence to [0, 1]</span>
+<span class="c1"># {&quot;scale&quot;: 1 / (max - min), &quot;shift&quot;: -min}</span>
+<span class="n">GRAPH_OBJ_TRANSFORM</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;stability&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">5.37</span><span class="p">,</span> <span class="s2">&quot;shift&quot;</span><span class="p">:</span> <span class="mf">1.97</span><span class="p">},</span>
+    <span class="s2">&quot;log_fluorescence&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.84</span><span class="p">,</span> <span class="s2">&quot;shift&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.28</span><span class="p">},</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="get_joint_objective_values">
+<a class="viewcode-back" href="../../../api.html#cortex.acquisition.get_joint_objective_values">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_joint_objective_values</span><span class="p">(</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
+    <span class="n">objectives</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">constraints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scaling</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get joint objective values from predicted properties based on objectives and constraints.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs : dict[str, Tensor]</span>
+<span class="sd">        dictionary of predicted properties. Each key is a property name and each value is a tensor of shape (ensemble size, batch_size)</span>
+<span class="sd">    objectives : list[str]</span>
+<span class="sd">        list of objective names. Each objective name must be a key in inputs.</span>
+<span class="sd">    constraints : Optional[dict[str, list[str]]], optional</span>
+<span class="sd">        dictionary of constraints. Each key is a constraint name and each value is a list of objective names that are constrained by the constraint.</span>
+<span class="sd">    scaling : Optional[dict[str, dict[str, float]]], optional</span>
+<span class="sd">        dictionary of scaling parameters. Each key is a property name and each value is a dictionary with keys &quot;scale&quot; and &quot;shift&quot;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor</span>
+<span class="sd">        Joint objective values of shape (ensemble size, batch_size, num_objectives)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">obj</span> <span class="ow">in</span> <span class="n">inputs</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objectives</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not all objectives </span><span class="si">{</span><span class="n">objectives</span><span class="si">}</span><span class="s2"> in predicted_properties </span><span class="si">{</span><span class="n">inputs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">objective_values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objectives</span><span class="p">:</span>
+        <span class="n">pred_means</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scaling</span><span class="p">:</span>
+            <span class="n">pred_means</span> <span class="o">=</span> <span class="n">scale_value</span><span class="p">(</span><span class="n">pred_means</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">scaling</span><span class="p">[</span><span class="n">obj</span><span class="p">][</span><span class="s2">&quot;shift&quot;</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">scaling</span><span class="p">[</span><span class="n">obj</span><span class="p">][</span><span class="s2">&quot;scale&quot;</span><span class="p">])</span>
+
+        <span class="n">objective_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred_means</span><span class="p">)</span>
+
+    <span class="n">objective_values</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">objective_values</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">objective_values</span>
+
+    <span class="n">constraint_values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objectives</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">:</span>
+            <span class="n">constraint_list</span> <span class="o">=</span> <span class="n">constraints</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span>
+            <span class="n">_current</span> <span class="o">=</span> <span class="p">[</span><span class="n">inputs</span><span class="p">[</span><span class="n">const</span><span class="p">]</span> <span class="k">for</span> <span class="n">const</span> <span class="ow">in</span> <span class="n">constraint_list</span><span class="p">]</span>
+            <span class="n">constraint_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">_current</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">constraint_values</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">constraint_values</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">objective_values</span> <span class="o">=</span> <span class="n">objective_values</span> <span class="o">*</span> <span class="n">constraint_values</span>
+
+    <span class="k">return</span> <span class="n">objective_values</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scale_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">shift</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">value</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tree_output_to_dict</span><span class="p">(</span>
+    <span class="n">tree_output</span><span class="p">:</span> <span class="n">NeuralTreeOutput</span><span class="p">,</span>
+    <span class="n">objectives</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">constraints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scaling</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert tree output to dictionary of tensors.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tree_output : NeuralTreeOutput</span>
+<span class="sd">        Tree output</span>
+<span class="sd">    objectives : list[str]</span>
+<span class="sd">        list of objective names. Each objective adds a key to the output dictionary.</span>
+<span class="sd">    constraints : Optional[dict[str, list[str]]], optional</span>
+<span class="sd">        Optional dictionary of constraints. Each key is added to the output dictionary.</span>
+<span class="sd">    scaling : Optional[dict[str, dict[str, float]]], optional</span>
+<span class="sd">        Optional dictionary of scaling parameters. Must be a subset of objectives and each value is a dictionary with keys &quot;scale&quot; and &quot;shift&quot;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict[str, Tensor]</span>
+<span class="sd">        dictionary of tensors with keys corresponding to objectives and constraints.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">objective</span> <span class="ow">in</span> <span class="n">objectives</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">objective</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">fetch_task_outputs</span><span class="p">(</span><span class="n">objective</span><span class="p">)[</span><span class="s2">&quot;loc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">objective</span> <span class="ow">in</span> <span class="n">scaling</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">objective</span><span class="si">}</span><span class="s2">_scaled&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale_value</span><span class="p">(</span>
+                <span class="n">value</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="n">objective</span><span class="p">],</span>
+                <span class="n">shift</span><span class="o">=</span><span class="n">scaling</span><span class="p">[</span><span class="n">objective</span><span class="p">][</span><span class="s2">&quot;shift&quot;</span><span class="p">],</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">scaling</span><span class="p">[</span><span class="n">objective</span><span class="p">][</span><span class="s2">&quot;scale&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">c_list</span> <span class="ow">in</span> <span class="n">constraints</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">c_list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">constraint_values</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">fetch_task_outputs</span><span class="p">(</span><span class="n">constraint</span><span class="p">)[</span><span class="s2">&quot;logits&quot;</span><span class="p">]</span>
+                <span class="n">constraint_values</span> <span class="o">=</span> <span class="n">constraint_values</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+                <span class="n">result</span><span class="p">[</span><span class="n">constraint</span><span class="p">]</span> <span class="o">=</span> <span class="n">constraint_values</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="get_graph_nei_runtime_kwargs">
+<a class="viewcode-back" href="../../../api.html#cortex.acquisition.get_graph_nei_runtime_kwargs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_graph_nei_runtime_kwargs</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralTree</span><span class="p">,</span>
+    <span class="n">candidate_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">objectives</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">GRAPH_OBJECTIVES</span><span class="p">,</span>
+    <span class="n">constraints</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">GRAPH_CONSTRAINTS</span><span class="p">,</span>
+    <span class="n">scaling</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="n">GRAPH_OBJ_TRANSFORM</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;==== predicting baseline point objective values ====&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+        <span class="n">tree_output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">call_from_str_array</span><span class="p">(</span><span class="n">candidate_points</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="n">tree_output_dict</span> <span class="o">=</span> <span class="n">tree_output_to_dict</span><span class="p">(</span><span class="n">tree_output</span><span class="p">,</span> <span class="n">objectives</span><span class="o">=</span><span class="n">objectives</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="n">scaling</span><span class="p">)</span>
+    <span class="n">f_baseline</span> <span class="o">=</span> <span class="n">get_joint_objective_values</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="o">=</span><span class="n">tree_output_dict</span><span class="p">,</span>
+        <span class="n">objectives</span><span class="o">=</span><span class="n">objectives</span><span class="p">,</span>
+        <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+        <span class="n">scaling</span><span class="o">=</span><span class="n">scaling</span><span class="p">,</span>
+    <span class="p">)</span>  <span class="c1"># (num_samples, num_baseline, num_objectives)</span>
+
+    <span class="n">f_baseline_flat</span> <span class="o">=</span> <span class="n">f_baseline</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">objectives</span><span class="p">))</span>
+    <span class="n">f_baseline_non_dom</span> <span class="o">=</span> <span class="n">f_baseline_flat</span><span class="p">[</span><span class="n">is_non_dominated</span><span class="p">(</span><span class="n">f_baseline_flat</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f_baseline_non_dom</span><span class="p">)</span>
+    <span class="n">f_ref</span> <span class="o">=</span> <span class="n">infer_reference_point</span><span class="p">(</span><span class="n">f_baseline_non_dom</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reference point: </span><span class="si">{</span><span class="n">f_ref</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;f_ref&quot;</span><span class="p">:</span> <span class="n">f_ref</span><span class="p">,</span>
+        <span class="s2">&quot;f_baseline&quot;</span><span class="p">:</span> <span class="n">f_baseline</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[INFO][LaMBO-2] Baseline value: </span><span class="si">{</span><span class="n">f_baseline</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+
+<div class="viewcode-block" id="GraphNEI">
+<a class="viewcode-back" href="../../../api.html#cortex.acquisition.GraphNEI">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GraphNEI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">objectives</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">constraints</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+        <span class="n">scaling</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+        <span class="n">f_ref</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># (num_objectives,)</span>
+        <span class="n">f_baseline</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># (num_samples, num_baseline, num_objectives)</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Very simple implementation of PropertyDAG + NEHVI</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">objectives</span> <span class="o">=</span> <span class="n">objectives</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaling</span> <span class="o">=</span> <span class="n">scaling</span>
+
+        <span class="n">f_non_dom</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">f_baseline</span><span class="p">:</span>
+            <span class="n">f_non_dom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">is_non_dominated</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obj_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">objectives</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj_dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">f_best</span> <span class="o">=</span> <span class="n">f_baseline</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acq_functions</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">qLogExpectedImprovement</span><span class="p">(</span>
+                    <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">best_f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span>
+                    <span class="n">objective</span><span class="o">=</span><span class="n">IdentityMCObjective</span><span class="p">(),</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">f_best</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acq_functions</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">qLogExpectedHypervolumeImprovement</span><span class="p">(</span>
+                    <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">ref_point</span><span class="o">=</span><span class="n">f_ref</span><span class="p">,</span>
+                    <span class="n">partitioning</span><span class="o">=</span><span class="n">FastNondominatedPartitioning</span><span class="p">(</span><span class="n">f_ref</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">f_non_dom</span>
+            <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">has_pointwise_reference</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="GraphNEI.get_objective_vals">
+<a class="viewcode-back" href="../../../api.html#cortex.acquisition.GraphNEI.get_objective_vals">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_objective_vals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree_output</span><span class="p">:</span> <span class="n">NeuralTreeOutput</span><span class="p">):</span>
+        <span class="n">tree_output_dict</span> <span class="o">=</span> <span class="n">tree_output_to_dict</span><span class="p">(</span><span class="n">tree_output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objectives</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaling</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_joint_objective_values</span><span class="p">(</span>
+            <span class="n">tree_output_dict</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objectives</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scaling</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">NeuralTreeOutput</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pointwise</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+            <span class="n">obj_val_samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_objective_vals</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">obj_val_samples</span> <span class="o">=</span> <span class="nb">input</span>
+
+        <span class="k">if</span> <span class="n">pointwise</span><span class="p">:</span>
+            <span class="n">obj_val_samples</span> <span class="o">=</span> <span class="n">obj_val_samples</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># (num_samples, num_designs, 1, num_objectives)</span>
+
+        <span class="c1"># assumes the first dimension of obj_vals corresponds to the qEHVI partitions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj_dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">acq_vals</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">fn</span><span class="o">.</span><span class="n">_sample_forward</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="k">for</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq_functions</span><span class="p">,</span> <span class="n">obj_val_samples</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">acq_vals</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">fn</span><span class="o">.</span><span class="n">_compute_log_qehvi</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">fn</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq_functions</span><span class="p">,</span> <span class="n">obj_val_samples</span><span class="p">)]</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">acq_vals</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Samuel D. Stanton
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

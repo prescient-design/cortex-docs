@@ -188,6 +188,10 @@
 <li class="toctree-l1"><a class="reference internal" href="3_training_a_neural_tree.html">Training a Neural Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -499,7 +503,7 @@ The <code class="docutils literal notranslate"><span class="pre">TaskDataModule<
   from .autonotebook import tqdm as notebook_tqdm
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;tokenized_seq&#39;, [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G R L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R I I F F E D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;, &#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M R Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G T D F K E D G N I L G H K L E Y N Y N S H S V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;]), (&#39;log_fluorescence&#39;, [3.7387540340423584, 3.6851398944854736]), (&#39;batch_size&#39;, 2)])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;tokenized_seq&#39;, [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P A P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F A T A A G I T H G M D E L Y K&#39;, &#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V H R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E S V T A A G I T H G M D E L Y K&#39;]), (&#39;log_fluorescence&#39;, [1.6413935422897339, 3.250714063644409]), (&#39;batch_size&#39;, 2)])
 </pre></div>
 </div>
 </div>
@@ -525,10 +529,10 @@ The <code class="docutils literal notranslate"><span class="pre">TaskDataModule<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;root_inputs&#39;: {&#39;protein_seq&#39;: {&#39;inputs&#39;: array([[&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G R L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R I I F F E D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;],
-       [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M R Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G T D F K E D G N I L G H K L E Y N Y N S H S V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F V T A A G I T H G M D E L Y K&#39;]],
-      dtype=&#39;&lt;U473&#39;), &#39;corrupt_frac&#39;: None}}, &#39;leaf_targets&#39;: {&#39;log_fluorescence_0&#39;: {&#39;targets&#39;: array([[3.73875403],
-       [3.68513989]])}}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;root_inputs&#39;: {&#39;protein_seq&#39;: {&#39;inputs&#39;: array([[&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P A P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V N R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E F A T A A G I T H G M D E L Y K&#39;],
+       [&#39;S K G E E L F T G V V P I L V E L D G D V N G H K F S V S G E G E G D A T Y G K L T L K F I C T T G K L P V P W P T L V T T L S Y G V Q C F S R Y P D H M K Q H D F F K S A M P E G Y V Q E R T I F F K D D G N Y K T R A E V K F E G D T L V H R I E L K G I D F K E D G N I L G H K L E Y N Y N S H N V Y I M A D K Q K N G I K V N F K I R H N I E D G S V Q L A D H Y Q Q N T P I G D G P V L L P D N H Y L S T Q S A L S K D P N E K R D H M V L L E S V T A A G I T H G M D E L Y K&#39;]],
+      dtype=&#39;&lt;U473&#39;), &#39;corrupt_frac&#39;: None}}, &#39;leaf_targets&#39;: {&#39;log_fluorescence_0&#39;: {&#39;targets&#39;: array([[1.64139354],
+       [3.25071406]])}}}
 </pre></div>
 </div>
 </div>
@@ -554,7 +558,7 @@ The <code class="docutils literal notranslate"><span class="pre">TaskDataModule<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/yh/yjy4n_mn0c98wplbl82vv0dm0000gp/T/ipykernel_12794/877463992.py:4: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/yh/yjy4n_mn0c98wplbl82vv0dm0000gp/T/ipykernel_44297/877463992.py:4: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
@@ -641,8 +645,8 @@ Will assume defaults for version 1.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.0164],
-        [0.0156]], grad_fn=&lt;MulBackward0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.0716],
+        [0.0664]], grad_fn=&lt;MulBackward0&gt;)
 </pre></div>
 </div>
 </div>
@@ -664,7 +668,7 @@ Will assume defaults for version 1.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(17.8404, grad_fn=&lt;MulBackward0&gt;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(9.5978, grad_fn=&lt;MulBackward0&gt;)
 </pre></div>
 </div>
 </div>
@@ -682,9 +686,9 @@ Will assume defaults for version 1.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nll&#39;: 17.84036636352539,
- &#39;nrmse&#39;: 0.9956903457641602,
- &#39;s_rho&#39;: 0.9999999999999999}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;nll&#39;: 9.59780502319336,
+ &#39;nrmse&#39;: 0.9749045372009277,
+ &#39;s_rho&#39;: -0.9999999999999999}
 </pre></div>
 </div>
 </div>

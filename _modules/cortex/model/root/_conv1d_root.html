@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cortex.model.root._conv1d_root &#8212; Cortex Docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/cortex/model/root/_conv1d_root';</script>
+    <link rel="icon" href="../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Cortex Docs - Home"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Cortex Docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    cortex: A Modular Architecture for Deep Learning Systems 🧠
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/1_neural_tree_anatomy.html">Anatomy of a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/2_defining_a_task.html">Defining a Task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/3_training_a_neural_tree.html">Training a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs/issues/new?title=Issue%20on%20page%20%2F_modules/cortex/model/root/_conv1d_root.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for cortex.model.root._conv1d_root</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">nn</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.corruption</span><span class="w"> </span><span class="kn">import</span> <span class="n">CorruptionProcess</span><span class="p">,</span> <span class="n">GaussianCorruptionProcess</span><span class="p">,</span> <span class="n">MaskCorruptionProcess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.block</span><span class="w"> </span><span class="kn">import</span> <span class="n">Conv1dResidBlock</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.elemental</span><span class="w"> </span><span class="kn">import</span> <span class="n">Apply</span><span class="p">,</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">SinePosEncoder</span><span class="p">,</span> <span class="n">permute_spatial_channel_dims</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.root</span><span class="w"> </span><span class="kn">import</span> <span class="n">RootNode</span><span class="p">,</span> <span class="n">RootNodeOutput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">HuggingFaceTokenizerTransform</span><span class="p">,</span> <span class="n">PadTransform</span><span class="p">,</span> <span class="n">ToTensor</span>
+
+
+<div class="viewcode-block" id="Conv1dRootOutput">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRootOutput">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Conv1dRootOutput</span><span class="p">(</span><span class="n">RootNodeOutput</span><span class="p">):</span>
+    <span class="n">padding_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+    <span class="n">src_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tgt_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">is_corrupted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">corrupt_frac</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="Conv1dRoot">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Conv1dRoot</span><span class="p">(</span><span class="n">RootNode</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A root node transforming an array of discrete sequences to an array of continuous sequence embeddings</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tokenizer_transform</span><span class="p">:</span> <span class="n">HuggingFaceTokenizerTransform</span><span class="p">,</span>
+        <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">out_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="n">channel_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
+        <span class="n">num_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">dilation</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">dropout_prob</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">layernorm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">pos_encoding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">train_transforms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">eval_transforms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">corruption_process</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CorruptionProcess</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer_transform</span><span class="o">.</span><span class="n">tokenizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_len</span> <span class="o">=</span> <span class="n">max_len</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pad_tok_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">padding_idx</span>
+        <span class="k">if</span> <span class="n">num_blocks</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tok_encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pad_tok_idx</span><span class="p">)</span>
+        <span class="c1"># optional positional encoding</span>
+        <span class="k">if</span> <span class="n">pos_encoding</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_encoder</span> <span class="o">=</span> <span class="n">SinePosEncoder</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="n">dropout_prob</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_encoder</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># create encoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="n">embed_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">=</span> <span class="n">num_blocks</span>
+        <span class="k">if</span> <span class="n">num_blocks</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">out_dim</span> <span class="o">=</span> <span class="n">out_dim</span>
+            <span class="n">encoder_modules</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">Apply</span><span class="p">(</span><span class="n">Expression</span><span class="p">(</span><span class="n">permute_spatial_channel_dims</span><span class="p">)),</span>  <span class="c1"># (B,N,C) -&gt; (B,C,N)</span>
+            <span class="p">]</span>
+            <span class="n">resid_block_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kernel_size&quot;</span><span class="p">:</span> <span class="n">kernel_size</span><span class="p">,</span>
+                <span class="s2">&quot;layernorm&quot;</span><span class="p">:</span> <span class="n">layernorm</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">num_blocks</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">encoder_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">Conv1dResidBlock</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="p">,</span> <span class="n">dropout_p</span><span class="o">=</span><span class="n">dropout_prob</span><span class="p">,</span> <span class="o">**</span><span class="n">resid_block_kwargs</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">encoder_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Conv1dResidBlock</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="n">channel_dim</span><span class="p">,</span> <span class="o">**</span><span class="n">resid_block_kwargs</span><span class="p">))</span>
+
+                <span class="n">encoder_modules</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">Conv1dResidBlock</span><span class="p">(</span>
+                            <span class="n">channel_dim</span><span class="p">,</span>
+                            <span class="n">channel_dim</span><span class="p">,</span>
+                            <span class="n">dilation</span><span class="o">=</span><span class="n">dilation</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">resid_block_kwargs</span><span class="p">,</span>
+                        <span class="p">)</span>
+                        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>
+
+                <span class="n">encoder_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">Conv1dResidBlock</span><span class="p">(</span>
+                        <span class="n">channel_dim</span><span class="p">,</span>
+                        <span class="n">out_dim</span><span class="p">,</span>
+                        <span class="n">dropout_p</span><span class="o">=</span><span class="n">dropout_prob</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">resid_block_kwargs</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="n">encoder_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">Apply</span><span class="p">(</span><span class="n">Expression</span><span class="p">(</span><span class="n">permute_spatial_channel_dims</span><span class="p">)),</span>  <span class="c1"># (B,C,N) -&gt; (B,N,C)</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">encoder_modules</span><span class="p">)</span>
+
+        <span class="n">shared_transforms</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tokenizer_transform</span><span class="p">,</span>  <span class="c1"># convert np.array([str, str, ...]) to list[list[int, int, ...]]</span>
+            <span class="n">ToTensor</span><span class="p">(</span><span class="n">padding_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pad_tok_idx</span><span class="p">),</span>  <span class="c1"># convert list[list[int, int, ...]] to tensor</span>
+            <span class="n">PadTransform</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_len</span><span class="p">,</span> <span class="n">pad_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pad_tok_idx</span><span class="p">),</span>  <span class="c1"># pad to max_len</span>
+        <span class="p">]</span>
+        <span class="n">train_transforms</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">train_transforms</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">train_transforms</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="n">eval_transforms</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">eval_transforms</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">eval_transforms</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_transform</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">train_transforms</span> <span class="o">+</span> <span class="n">shared_transforms</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eval_transform</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">eval_transforms</span> <span class="o">+</span> <span class="n">shared_transforms</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span> <span class="o">=</span> <span class="n">corruption_process</span>
+
+<div class="viewcode-block" id="Conv1dRoot.initialize_weights">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.initialize_weights">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># default random initialization</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Conv1dRoot.get_token_embedding">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.get_token_embedding">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_token_embedding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tok_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tok_encoder</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">tok_idx</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tok_encoder</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">device</span>
+
+<div class="viewcode-block" id="Conv1dRoot.init_seq">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.init_seq">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_seq</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># TODO deprecate</span>
+        <span class="n">seq_array</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corrupt_frac</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># infer input type if not specified</span>
+        <span class="k">if</span> <span class="n">inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="n">seq_array</span> <span class="o">=</span> <span class="n">inputs</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">LongTensor</span><span class="p">):</span>
+                <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="n">inputs</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+                <span class="n">src_tok_embs</span> <span class="o">=</span> <span class="n">inputs</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;inputs is deprecated, use a specific argument instead&quot;</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">PendingDeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;mask_frac&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mask_frac&quot;</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;mask_frac is deprecated, use corrupt_frac instead.&quot;</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">PendingDeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">corrupt_frac</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span><span class="o">.</span><span class="n">sample_corrupt_frac</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">return</span> <span class="n">seq_array</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">corrupt_frac</span></div>
+
+
+<div class="viewcode-block" id="Conv1dRoot.tokenize_seq">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.tokenize_seq">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tokenize_seq</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">seq_array</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corrupt_frac</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">is_corrupted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corruption_allowed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># begin forward pass from raw sequence</span>
+        <span class="k">if</span> <span class="n">seq_array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">tgt_tok_idxs</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">assert</span> <span class="n">src_tok_embs</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+                <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_transform</span><span class="p">(</span><span class="n">seq_array</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_transform</span><span class="p">(</span><span class="n">seq_array</span><span class="p">)</span>
+            <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="n">tgt_tok_idxs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># truncate token sequence to max context length</span>
+        <span class="k">if</span> <span class="n">tgt_tok_idxs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">src_tok_embs</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="c1"># truncate to max context length, keep final stop token</span>
+            <span class="k">if</span> <span class="n">tgt_tok_idxs</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_len</span><span class="p">:</span>
+                <span class="n">tmp_tok_idxs</span> <span class="o">=</span> <span class="n">tgt_tok_idxs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">tmp_tok_idxs</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">corruption_allowed</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tgt_tok_idxs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">corruption_allowed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">get_corruptible_mask</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">)</span>
+
+        <span class="c1"># begin forward pass from tokenized sequence</span>
+        <span class="k">if</span> <span class="n">tgt_tok_idxs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># apply masking corruption</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span><span class="p">,</span> <span class="n">MaskCorruptionProcess</span><span class="p">)</span> <span class="ow">and</span> <span class="n">corrupt_frac</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">src_tok_idxs</span><span class="p">,</span> <span class="n">is_corrupted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span><span class="p">(</span>
+                    <span class="n">x_start</span><span class="o">=</span><span class="n">tgt_tok_idxs</span><span class="p">,</span>
+                    <span class="n">mask_val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">masking_idx</span><span class="p">,</span>
+                    <span class="n">corruption_allowed</span><span class="o">=</span><span class="n">corruption_allowed</span><span class="p">,</span>
+                    <span class="n">corrupt_frac</span><span class="o">=</span><span class="n">corrupt_frac</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">src_tok_idxs</span> <span class="o">=</span> <span class="n">tgt_tok_idxs</span>
+                <span class="n">is_corrupted</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">torch</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">src_tok_idxs</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_corrupted</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">is_corrupted</span>
+                <span class="p">)</span>
+
+            <span class="n">padding_mask</span> <span class="o">=</span> <span class="n">src_tok_idxs</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad_tok_idx</span>
+
+        <span class="k">if</span> <span class="n">src_tok_embs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">seq_array</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">assert</span> <span class="n">padding_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="n">src_tok_idxs</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">src_tok_idxs</span><span class="p">,</span>
+            <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+            <span class="n">corruption_allowed</span><span class="p">,</span>
+            <span class="n">is_corrupted</span><span class="p">,</span>
+            <span class="n">padding_mask</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Conv1dRoot.embed_seq">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.embed_seq">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">embed_seq</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">src_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corrupt_frac</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">is_corrupted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corruption_allowed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">normalize_embeds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># begin forward pass from token embeddings</span>
+        <span class="k">if</span> <span class="n">src_tok_embs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">src_tok_embs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tok_encoder</span><span class="p">(</span><span class="n">src_tok_idxs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">normalize_embeds</span><span class="p">:</span>
+                <span class="n">src_tok_embs</span> <span class="o">=</span> <span class="n">src_tok_embs</span> <span class="o">/</span> <span class="n">src_tok_embs</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_min</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">)</span>
+                <span class="n">src_tok_embs</span> <span class="o">=</span> <span class="n">src_tok_embs</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span><span class="p">)</span>
+
+        <span class="c1"># apply gaussian embedding corruption</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span><span class="p">,</span> <span class="n">GaussianCorruptionProcess</span><span class="p">)</span> <span class="ow">and</span> <span class="n">corrupt_frac</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">corruption_allowed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">is_corrupted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corruption_process</span><span class="p">(</span>
+                <span class="n">x_start</span><span class="o">=</span><span class="n">src_tok_embs</span><span class="p">,</span>
+                <span class="n">corruption_allowed</span><span class="o">=</span><span class="n">corruption_allowed</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+                <span class="n">corrupt_frac</span><span class="o">=</span><span class="n">corrupt_frac</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">is_corrupted</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">none_corrupted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="o">*</span><span class="n">src_tok_embs</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">src_tok_embs</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">none_corrupted</span> <span class="k">if</span> <span class="n">is_corrupted</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">is_corrupted</span>
+
+        <span class="k">return</span> <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">is_corrupted</span></div>
+
+
+<div class="viewcode-block" id="Conv1dRoot.process_seq">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.process_seq">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_seq</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># apply positional encoding if it exists</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">src_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_encoder</span><span class="p">(</span><span class="n">src_tok_embs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">src_features</span> <span class="o">=</span> <span class="n">src_tok_embs</span>
+
+        <span class="c1"># main forward pass</span>
+        <span class="n">src_features</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">((</span><span class="n">src_features</span><span class="p">,</span> <span class="n">padding_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">src_features</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="n">src_features</span></div>
+
+
+<div class="viewcode-block" id="Conv1dRoot.forward">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.root.html#cortex.model.root.Conv1dRoot.forward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># TODO deprecate</span>
+        <span class="n">seq_array</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_tok_embs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corrupt_frac</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">is_corrupted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">corruption_allowed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Conv1dRootOutput</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            seq_array: (batch_size,) array of discrete sequences (e.g. text strings)</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            outputs: {&#39;root_features&#39;: torch.Tensor, &#39;padding_mask&#39;: torch.Tensor}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">seq_array</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_seq</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">seq_array</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="p">(</span>
+            <span class="n">src_tok_idxs</span><span class="p">,</span>
+            <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+            <span class="n">corruption_allowed</span><span class="p">,</span>
+            <span class="n">is_corrupted</span><span class="p">,</span>
+            <span class="n">padding_mask</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenize_seq</span><span class="p">(</span>
+            <span class="n">seq_array</span><span class="p">,</span>
+            <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+            <span class="n">src_tok_embs</span><span class="p">,</span>
+            <span class="n">padding_mask</span><span class="p">,</span>
+            <span class="n">corrupt_frac</span><span class="p">,</span>
+            <span class="n">is_corrupted</span><span class="p">,</span>
+            <span class="n">corruption_allowed</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">is_corrupted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_seq</span><span class="p">(</span>
+            <span class="n">src_tok_idxs</span><span class="p">,</span> <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="p">,</span> <span class="n">is_corrupted</span><span class="p">,</span> <span class="n">corruption_allowed</span>
+        <span class="p">)</span>
+        <span class="n">src_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_seq</span><span class="p">(</span><span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">padding_mask</span><span class="p">)</span>
+        <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">((</span><span class="n">corrupt_frac</span><span class="p">,))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">src_tok_embs</span><span class="p">)</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">Conv1dRootOutput</span><span class="p">(</span>
+            <span class="n">root_features</span><span class="o">=</span><span class="n">src_features</span><span class="o">.</span><span class="n">contiguous</span><span class="p">(),</span>
+            <span class="n">padding_mask</span><span class="o">=</span><span class="n">padding_mask</span><span class="p">,</span>
+            <span class="n">src_tok_embs</span><span class="o">=</span><span class="n">src_tok_embs</span><span class="p">,</span>
+            <span class="n">src_tok_idxs</span><span class="o">=</span><span class="n">src_tok_idxs</span><span class="p">,</span>
+            <span class="n">tgt_tok_idxs</span><span class="o">=</span><span class="n">tgt_tok_idxs</span><span class="p">,</span>
+            <span class="n">is_corrupted</span><span class="o">=</span><span class="n">is_corrupted</span><span class="p">,</span>
+            <span class="n">corrupt_frac</span><span class="o">=</span><span class="n">corrupt_frac</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">outputs</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Samuel D. Stanton
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

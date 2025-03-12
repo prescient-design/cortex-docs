@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cortex.optim.generative._lambo &#8212; Cortex Docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/cortex/optim/generative/_lambo';</script>
+    <link rel="icon" href="../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Cortex Docs - Home"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Cortex Docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    cortex: A Modular Architecture for Deep Learning Systems 🧠
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/1_neural_tree_anatomy.html">Anatomy of a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/2_defining_a_task.html">Defining a Task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/3_training_a_neural_tree.html">Training a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs/issues/new?title=Issue%20on%20page%20%2F_modules/cortex/optim/generative/_lambo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for cortex.optim.generative._lambo</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.distributions.kl</span><span class="w"> </span><span class="kn">import</span> <span class="n">kl_divergence</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.attribution</span><span class="w"> </span><span class="kn">import</span> <span class="n">approximate_occlusion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.corruption</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianCorruptionProcess</span><span class="p">,</span> <span class="n">MaskCorruptionProcess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.leaf</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlm_pseudo_log_likelihood</span>
+
+
+<div class="viewcode-block" id="LaMBO">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LaMBO</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class implements the LaMBO-2 algorithm for optimization of discrete sequences.</span>
+
+<span class="sd">    https://arxiv.org/abs/2305.20009</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">,</span>
+        <span class="n">is_mutable</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">BoolTensor</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">,</span>
+        <span class="n">objective</span><span class="p">,</span>
+        <span class="n">max_num_solutions</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_mutations_per_step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">max_guidance_updates</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="n">guidance_step_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">guidance_layer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;trunk&quot;</span><span class="p">,</span>
+        <span class="n">kl_weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">feature_attr_temp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.125</span><span class="p">,</span>
+        <span class="n">constraint_fn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">domain_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">exclude_initial_solution</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">resample_edit_positions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">objective</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_num_solutions</span> <span class="o">=</span> <span class="n">max_num_solutions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_mutations_per_step</span> <span class="o">=</span> <span class="n">num_mutations_per_step</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_guidance_updates</span> <span class="o">=</span> <span class="n">max_guidance_updates</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guidance_step_size</span> <span class="o">=</span> <span class="n">guidance_step_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guidance_layer</span> <span class="o">=</span> <span class="n">guidance_layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">=</span> <span class="n">kl_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_attr_temp</span> <span class="o">=</span> <span class="n">feature_attr_temp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint_fn</span> <span class="o">=</span> <span class="n">constraint_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span> <span class="o">=</span> <span class="s2">&quot;iterate&quot;</span> <span class="k">if</span> <span class="n">domain_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">domain_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resample_edit_positions</span> <span class="o">=</span> <span class="n">resample_edit_positions</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">t_idxs</span><span class="p">)</span> <span class="k">for</span> <span class="n">t_idxs</span> <span class="ow">in</span> <span class="n">params</span><span class="p">])</span>
+
+        <span class="n">initial_obj_val</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score_sequences</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_solution</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">initial_obj_val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_obj_val</span> <span class="o">=</span> <span class="n">initial_obj_val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_mutable</span> <span class="o">=</span> <span class="n">is_mutable</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iteration&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span><span class="p">,</span>
+                <span class="n">domain_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_solution</span><span class="p">,</span>
+                <span class="s2">&quot;obj_val&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_obj_val</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="p">},</span>
+            <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">initial_obj_val</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">))),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exclude_initial_solution</span> <span class="o">=</span> <span class="n">exclude_initial_solution</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tokenizer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">tokenizer</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tokens_to_long_tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">eval_transform</span>
+
+<div class="viewcode-block" id="LaMBO.step">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO.step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Each call of LaMBO.step() corresponds to one guided diffusion step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;==== LaMBO-2 Step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ====&quot;</span><span class="p">)</span>
+        <span class="n">prev_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_solution</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:]</span>
+        <span class="n">base_solutions</span> <span class="o">=</span> <span class="n">prev_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="c1"># TODO figure out cleaner structure</span>
+        <span class="n">base_tok_idxs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokens_to_long_tensor</span><span class="p">(</span><span class="n">base_solutions</span><span class="p">)</span>
+        <span class="n">base_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_tok_idxs</span><span class="p">(</span><span class="n">base_tok_idxs</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">base_obj_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">base_output</span><span class="p">)</span>
+        <span class="n">base_tok_embs</span> <span class="o">=</span> <span class="n">base_output</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">src_tok_embs</span>
+        <span class="n">base_padding_mask</span> <span class="o">=</span> <span class="n">base_output</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">padding_mask</span>
+
+        <span class="c1"># tensor of token indices that are not viable sample output</span>
+        <span class="n">non_viable_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">sampling_vocab_excluded</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># check feasibility constraints</span>
+        <span class="n">base_is_feasible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_constraints</span><span class="p">(</span><span class="n">base_tok_idxs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">base_tok_idxs</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">base_is_feasible</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No feasible starting points, search may fail to find feasible solutions. Try changing the initial solution or the constraint function.&quot;</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimizing </span><span class="si">{</span><span class="n">base_obj_vals</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2"> solutions&quot;</span><span class="p">)</span>
+
+        <span class="c1"># create mutable tensors for optimization</span>
+        <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="n">base_tok_idxs</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="n">tgt_tok_embs</span> <span class="o">=</span> <span class="n">base_tok_embs</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="n">tgt_padding_mask</span> <span class="o">=</span> <span class="n">base_padding_mask</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+
+        <span class="c1"># choose edit positions</span>
+        <span class="n">is_corruptible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">get_corruptible_mask</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coordinate_selection</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">tgt_tok_embs</span><span class="p">,</span> <span class="n">tgt_padding_mask</span><span class="p">,</span> <span class="n">is_corruptible</span><span class="p">)</span>
+
+        <span class="c1"># score current solutions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude_initial_solution</span><span class="p">:</span>
+            <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">base_obj_vals</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="n">base_obj_vals</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">tgt_obj_vals</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span>
+            <span class="n">tgt_obj_vals</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">*</span> <span class="n">mlm_pseudo_log_likelihood</span><span class="p">(</span>
+                <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+                <span class="n">null_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">masking_idx</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_tok_idxs</span><span class="p">,</span>
+                <span class="n">root_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">,</span>
+                <span class="n">is_excluded</span><span class="o">=~</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">get_corruptible_mask</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="c1"># set up forwards pass inputs</span>
+        <span class="n">generation_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_up_root_inputs</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">tgt_tok_embs</span><span class="p">,</span> <span class="n">tgt_padding_mask</span><span class="p">)</span>
+        <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">generation_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;is_corrupted&quot;</span><span class="p">]</span>
+
+        <span class="c1"># get latent features, make them leaf variables</span>
+        <span class="n">activations</span><span class="p">,</span> <span class="n">trunk_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_latent_variables</span><span class="p">(</span><span class="n">generation_inputs</span><span class="p">)</span>
+
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">activations</span><span class="p">))</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">delta</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">guidance_step_size</span><span class="p">,</span> <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.0999</span><span class="p">))</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span><span class="p">}</span>
+
+        <span class="c1"># get initial solution before guidance</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_solution</span><span class="p">(</span>
+            <span class="n">trunk_outputs</span><span class="p">,</span>
+            <span class="n">activations</span><span class="p">,</span>
+            <span class="n">delta</span><span class="p">,</span>
+            <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+            <span class="n">tgt_obj_vals</span><span class="p">,</span>
+            <span class="n">is_corrupted</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">non_viable_idxs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">lang_step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_guidance_updates</span><span class="p">):</span>
+            <span class="n">delta</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># forward pass from modified activations</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">guidance_layer</span> <span class="o">==</span> <span class="s2">&quot;root&quot;</span><span class="p">:</span>
+                <span class="n">masked_delta</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_corrupted</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">delta</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">generation_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;src_tok_embs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">activations</span> <span class="o">+</span> <span class="n">masked_delta</span>
+                <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">root_inputs</span><span class="o">=</span><span class="n">generation_inputs</span><span class="p">)</span>
+                <span class="n">trunk_outputs</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">trunk_outputs</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">guidance_layer</span> <span class="o">==</span> <span class="s2">&quot;trunk&quot;</span><span class="p">:</span>
+                <span class="n">masked_delta</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_corrupted</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">delta</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">trunk_outputs</span><span class="o">.</span><span class="n">trunk_features</span> <span class="o">=</span> <span class="n">activations</span> <span class="o">+</span> <span class="n">masked_delta</span>
+                <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_trunk_output</span><span class="p">(</span><span class="n">trunk_outputs</span><span class="p">)</span>
+
+            <span class="c1"># guided token distribution logits</span>
+            <span class="n">token_logits</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="si">}</span><span class="s2">_0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">logits</span>
+
+            <span class="c1"># fix unguided reference token distribution</span>
+            <span class="k">if</span> <span class="n">lang_step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">adj_logits</span> <span class="o">=</span> <span class="n">token_logits</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                    <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">non_viable_idxs</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">*</span><span class="n">token_logits</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">token_logits</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
+                    <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
+                <span class="n">base_probs</span> <span class="o">=</span> <span class="n">adj_logits</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_min</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">)</span>
+                <span class="n">base_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">probs</span><span class="o">=</span><span class="n">base_probs</span><span class="p">)</span>
+
+            <span class="c1"># compute guidance loss</span>
+            <span class="n">guided_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">logits</span><span class="o">=</span><span class="n">token_logits</span><span class="p">)</span>
+            <span class="n">entropy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">masked_select</span><span class="p">(</span><span class="n">guided_dist</span><span class="o">.</span><span class="n">entropy</span><span class="p">(),</span> <span class="n">is_corrupted</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">kl_div</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">masked_select</span><span class="p">(</span><span class="n">kl_divergence</span><span class="p">(</span><span class="n">guided_dist</span><span class="p">,</span> <span class="n">base_dist</span><span class="p">),</span> <span class="n">is_corrupted</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">obj_loss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">tree_output</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">design_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">*</span> <span class="n">kl_div</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span><span class="p">)</span> <span class="o">*</span> <span class="n">obj_loss</span>
+            <span class="n">design_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">feature_grad</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="c1"># update solution</span>
+            <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_solution</span><span class="p">(</span>
+                <span class="n">trunk_outputs</span><span class="p">,</span>
+                <span class="n">activations</span><span class="p">,</span>
+                <span class="n">delta</span><span class="p">,</span>
+                <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+                <span class="n">tgt_obj_vals</span><span class="p">,</span>
+                <span class="n">is_corrupted</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+                <span class="n">non_viable_idxs</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">grad_norm</span> <span class="o">=</span> <span class="n">feature_grad</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">metrics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;act_obj_val&quot;</span><span class="p">:</span> <span class="n">tgt_obj_vals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                    <span class="s2">&quot;masked_design_loss&quot;</span><span class="p">:</span> <span class="n">design_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                    <span class="s2">&quot;masked_design_loss_grad_norm&quot;</span><span class="p">:</span> <span class="n">grad_norm</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                    <span class="s2">&quot;masked_token_loss&quot;</span><span class="p">:</span> <span class="n">kl_div</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                    <span class="s2">&quot;masked_obj_loss&quot;</span><span class="p">:</span> <span class="n">obj_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                    <span class="s2">&quot;token_entropy&quot;</span><span class="p">:</span> <span class="n">entropy</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+            <span class="n">pprint</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">tgt_str_array</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">t_idxs</span><span class="p">)</span> <span class="k">for</span> <span class="n">t_idxs</span> <span class="ow">in</span> <span class="n">tgt_tok_idxs</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">:</span> <span class="n">tgt_str_array</span><span class="p">})</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;obj_val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tgt_obj_vals</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;iteration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_coordinate_selection</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tok_idxs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">,</span>
+        <span class="n">tok_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">,</span>
+        <span class="n">padding_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">BoolTensor</span><span class="p">,</span>
+        <span class="n">is_corruptible</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">BoolTensor</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Choose edit positions (i.e. the infilling region) for diffusion.</span>
+<span class="sd">        If `resample_edit_positions` is True, the infilling region can change between steps.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">coord_score</span><span class="p">(</span><span class="n">tok_embeddings</span><span class="p">):</span>
+            <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_tok_embs</span><span class="p">(</span>
+                <span class="n">tok_embeddings</span><span class="p">,</span> <span class="n">root_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">padding_mask</span><span class="o">=</span><span class="n">padding_mask</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">tree_output</span><span class="p">)</span>
+
+        <span class="n">null_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">get_token_embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">masking_idx</span><span class="p">)</span>
+
+        <span class="c1"># edit_idxs are all corruptible and mutable positions</span>
+        <span class="n">pos_is_feasible</span> <span class="o">=</span> <span class="n">is_corruptible</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_mutable</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_mutations_per_step</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span> <span class="o">=</span> <span class="n">pos_is_feasible</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">resample_edit_positions</span><span class="p">:</span>
+            <span class="n">position_scores</span> <span class="o">=</span> <span class="n">approximate_occlusion</span><span class="p">(</span>
+                <span class="n">coord_score</span><span class="p">,</span>
+                <span class="n">tok_embeddings</span><span class="p">,</span>
+                <span class="n">null_embedding</span><span class="p">,</span>
+                <span class="n">is_excluded</span><span class="o">=~</span><span class="n">pos_is_feasible</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">denom</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">position_scores</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">),</span> <span class="n">position_scores</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">position_scores</span> <span class="o">=</span> <span class="n">position_scores</span> <span class="o">/</span> <span class="p">(</span><span class="n">denom</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">)</span>
+
+            <span class="n">position_probs</span> <span class="o">=</span> <span class="p">(</span><span class="n">position_scores</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_attr_temp</span><span class="p">)</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">hand_tuned_entropy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">probs</span><span class="o">=</span><span class="n">position_probs</span><span class="p">)</span><span class="o">.</span><span class="n">entropy</span><span class="p">()</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[INFO][LaMBO-2]: Hand-tuned entropy = </span><span class="si">{</span><span class="n">hand_tuned_entropy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">edit_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">position_probs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_mutations_per_step</span><span class="p">,</span> <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">edit_idxs</span> <span class="o">=</span> <span class="n">edit_idxs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">tok_idxs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">edit_idxs</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected edit positions: </span><span class="si">{</span><span class="n">edit_idxs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_latent_variables</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">generation_inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">tree_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">generation_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="si">}</span><span class="s2">_0&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">guidance_layer</span> <span class="o">==</span> <span class="s2">&quot;root&quot;</span><span class="p">:</span>
+            <span class="n">activations</span> <span class="o">=</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">src_tok_embs</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">guidance_layer</span> <span class="o">==</span> <span class="s2">&quot;trunk&quot;</span><span class="p">:</span>
+            <span class="n">activations</span> <span class="o">=</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">trunk_outputs</span><span class="o">.</span><span class="n">trunk_features</span>
+
+        <span class="n">trunk_outputs</span> <span class="o">=</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">trunk_outputs</span>
+
+        <span class="k">return</span> <span class="n">activations</span><span class="p">,</span> <span class="n">trunk_outputs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_solution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trunk_outputs</span><span class="p">,</span>
+        <span class="n">activations</span><span class="p">,</span>
+        <span class="n">delta</span><span class="p">,</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+        <span class="n">tgt_obj_vals</span><span class="p">,</span>
+        <span class="n">is_corrupted</span><span class="p">,</span>
+        <span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">non_viable_idxs</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the guided activations, decode out to sequence and check for improvement.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># update latent features only at masked locations</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">new_activations</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_corrupted</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">activations</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span> <span class="n">activations</span><span class="p">)</span>
+            <span class="c1"># compute token logits from updated features</span>
+            <span class="n">trunk_outputs</span><span class="o">.</span><span class="n">trunk_features</span> <span class="o">=</span> <span class="n">new_activations</span>
+            <span class="n">sample_tok_idxs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">trunk_outputs</span><span class="p">,</span> <span class="n">non_viable_idxs</span><span class="p">)</span>
+            <span class="n">sample_tok_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_corrupted</span><span class="p">,</span> <span class="n">sample_tok_idxs</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">)</span>
+
+            <span class="n">sample_obj_vals</span><span class="p">,</span> <span class="n">sample_tok_embs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score_sequences</span><span class="p">(</span><span class="n">sample_tok_idxs</span><span class="p">)</span>
+            <span class="n">sample_obj_vals</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">sample_obj_vals</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kl_weight</span> <span class="o">*</span> <span class="n">mlm_pseudo_log_likelihood</span><span class="p">(</span>
+                    <span class="n">sample_tok_idxs</span><span class="p">,</span>
+                    <span class="n">null_value</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">masking_idx</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_tok_idxs</span><span class="p">,</span>
+                    <span class="n">root_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">,</span>
+                    <span class="n">is_excluded</span><span class="o">=~</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">get_corruptible_mask</span><span class="p">(</span><span class="n">tgt_tok_idxs</span><span class="p">),</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">tgt_obj_vals</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="n">sample_obj_vals</span>
+                <span class="n">sample_is_improved</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">sample_obj_vals</span><span class="p">)</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sample_is_improved</span> <span class="o">=</span> <span class="n">sample_obj_vals</span> <span class="o">&gt;=</span> <span class="n">tgt_obj_vals</span>
+
+            <span class="n">sample_is_feasible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_constraints</span><span class="p">(</span><span class="n">sample_tok_idxs</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feasible samples: </span><span class="si">{</span><span class="n">sample_is_feasible</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">sample_is_feasible</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># keep improved feasible sequences</span>
+            <span class="n">replace_mask</span> <span class="o">=</span> <span class="n">sample_is_improved</span> <span class="o">*</span> <span class="n">sample_is_feasible</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">sample_is_improved</span><span class="p">)</span>
+            <span class="c1"># tgt_tok_embs = torch.where(replace_mask[..., None, None], sample_tok_embs, tgt_tok_embs)</span>
+            <span class="n">tgt_tok_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">replace_mask</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">sample_tok_idxs</span><span class="p">,</span> <span class="n">tgt_tok_idxs</span><span class="p">)</span>
+            <span class="n">tgt_obj_vals</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">replace_mask</span><span class="p">,</span> <span class="n">sample_obj_vals</span><span class="p">,</span> <span class="n">tgt_obj_vals</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tgt_tok_idxs</span><span class="p">,</span> <span class="n">tgt_obj_vals</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_up_root_inputs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tgt_tok_idxs</span><span class="p">,</span>
+        <span class="n">tgt_tok_embs</span><span class="p">,</span>
+        <span class="n">tgt_padding_mask</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up inputs for the forward pass of each guidance update.</span>
+<span class="sd">        Corrupt a random subset of the positions selected previously as the infilling region.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">corrupt_frac</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_count</span><span class="p">)</span>
+
+        <span class="n">root_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="n">corrupt_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;corrupt_frac&quot;</span><span class="p">:</span> <span class="n">corrupt_frac</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">corruption_process</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">corruption_process</span>
+
+        <span class="c1"># corrupt random subset of positions where self._corruption_allowed is True</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">corruption_process</span><span class="p">,</span> <span class="n">MaskCorruptionProcess</span><span class="p">):</span>
+            <span class="n">corrupt_kwargs</span><span class="p">[</span><span class="s2">&quot;x_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tgt_tok_idxs</span>
+            <span class="n">corrupt_kwargs</span><span class="p">[</span><span class="s2">&quot;corruption_allowed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span>
+            <span class="n">corrupt_kwargs</span><span class="p">[</span><span class="s2">&quot;mask_val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">masking_idx</span>
+            <span class="n">src_tok_idxs</span><span class="p">,</span> <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">corruption_process</span><span class="p">(</span><span class="o">**</span><span class="n">corrupt_kwargs</span><span class="p">)</span>
+            <span class="n">root_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;tgt_tok_idxs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">src_tok_idxs</span>
+            <span class="n">root_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;is_corrupted&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_corrupted</span>
+
+        <span class="c1"># corrupt all positions where self._corruption_allowed is True</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">corruption_process</span><span class="p">,</span> <span class="n">GaussianCorruptionProcess</span><span class="p">):</span>
+            <span class="n">corrupt_kwargs</span><span class="p">[</span><span class="s2">&quot;x_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tgt_tok_embs</span>
+            <span class="n">corrupt_kwargs</span><span class="p">[</span><span class="s2">&quot;corruption_allowed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_corruption_allowed</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+            <span class="n">src_tok_embs</span><span class="p">,</span> <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">corruption_process</span><span class="p">(</span><span class="o">**</span><span class="n">corrupt_kwargs</span><span class="p">)</span>
+            <span class="n">is_corrupted</span> <span class="o">=</span> <span class="n">is_corrupted</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+            <span class="n">root_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;src_tok_embs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">src_tok_embs</span>
+            <span class="n">root_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;is_corrupted&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_corrupted</span>
+            <span class="n">root_inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">][</span><span class="s2">&quot;padding_mask&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tgt_padding_mask</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+        <span class="k">return</span> <span class="n">root_inputs</span>
+
+<div class="viewcode-block" id="LaMBO.check_constraints">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO.check_constraints">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_tok_idxs</span><span class="p">):</span>
+        <span class="n">tokenizer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">tokenizer</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sample_seqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">t_idxs</span><span class="p">)</span> <span class="k">for</span> <span class="n">t_idxs</span> <span class="ow">in</span> <span class="n">sample_tok_idxs</span><span class="p">]</span>
+            <span class="n">sample_seqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample_seqs</span><span class="p">)</span>
+            <span class="n">sample_is_feasible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint_fn</span><span class="p">(</span><span class="n">sample_seqs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_is_feasible</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">sample_tok_idxs</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">sample_is_feasible</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LaMBO.score_sequences">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO.score_sequences">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">score_sequences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequences</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_str_array</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+                <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">call_from_tok_idxs</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid sequences type&quot;</span><span class="p">)</span>
+        <span class="n">sample_tok_embs</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="p">]</span><span class="o">.</span><span class="n">src_tok_embs</span>
+        <span class="n">sample_obj_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">tree_output</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sample_obj_vals</span><span class="p">,</span> <span class="n">sample_tok_embs</span></div>
+
+
+<div class="viewcode-block" id="LaMBO.get_best_solutions">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO.get_best_solutions">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_best_solutions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_solution</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;obj_val_init&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_obj_val</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="LaMBO.decode">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.optim.generative.html#cortex.optim.generative.LaMBO.decode">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trunk_outputs</span><span class="p">,</span> <span class="n">non_viable_idxs</span><span class="p">):</span>
+        <span class="n">leaf_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_name</span><span class="si">}</span><span class="s2">_0&quot;</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">tree_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">root_inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trunk_outputs</span><span class="o">=</span><span class="n">trunk_outputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="p">[</span><span class="n">leaf_key</span><span class="p">])</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="n">leaf_key</span><span class="p">]</span><span class="o">.</span><span class="n">logits</span>
+
+        <span class="c1"># adjust logits to prevent sampling utility tokens</span>
+        <span class="n">adj_logits</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">non_viable_idxs</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">*</span><span class="n">logits</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
+            <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># sample new tokens at masked locations</span>
+        <span class="n">sample_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">logits</span><span class="o">=</span><span class="n">adj_logits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sample_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Samuel D. Stanton
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

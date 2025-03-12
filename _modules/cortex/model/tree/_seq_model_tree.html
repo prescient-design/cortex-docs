@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cortex.model.tree._seq_model_tree &#8212; Cortex Docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/cortex/model/tree/_seq_model_tree';</script>
+    <link rel="icon" href="../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Cortex Docs - Home"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Cortex Docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    cortex: A Modular Architecture for Deep Learning Systems 🧠
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/1_neural_tree_anatomy.html">Anatomy of a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/2_defining_a_task.html">Defining a Task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/3_training_a_neural_tree.html">Training a Neural Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/4_guided_diffusion.html">Protein Design with Guided Discrete Diffusion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/prescient-design/cortex-docs/issues/new?title=Issue%20on%20page%20%2F_modules/cortex/model/tree/_seq_model_tree.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for cortex.model.tree._seq_model_tree</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">hydra</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botorch.models.transforms.outcome</span><span class="w"> </span><span class="kn">import</span> <span class="n">OutcomeTransform</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omegaconf</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictConfig</span><span class="p">,</span> <span class="n">OmegaConf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytorch_lightning.trainer.supporters</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombinedLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">online_weight_update_</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.leaf._classifier_leaf</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassifierLeaf</span><span class="p">,</span> <span class="n">format_classifier_ensemble_output</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.leaf._denoising_lm_leaf</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DenoisingLanguageModelLeaf</span><span class="p">,</span>
+    <span class="n">format_denoising_lm_ensemble_output</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.leaf._regressor_leaf</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegressorLeaf</span><span class="p">,</span> <span class="n">format_regressor_ensemble_output</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cortex.model.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeuralTree</span>
+
+
+<div class="viewcode-block" id="SequenceModelTree">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SequenceModelTree</span><span class="p">(</span><span class="n">NeuralTree</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">LightningModule</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">root_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trunk_node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">branch_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">leaf_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fit_cfg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DictConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># hyperparameters for training</span>
+    <span class="p">):</span>
+        <span class="n">root_nodes</span> <span class="o">=</span> <span class="n">root_nodes</span> <span class="ow">or</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="n">branch_nodes</span> <span class="o">=</span> <span class="n">branch_nodes</span> <span class="ow">or</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="n">leaf_nodes</span> <span class="o">=</span> <span class="n">leaf_nodes</span> <span class="ow">or</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">root_nodes</span><span class="o">=</span><span class="n">root_nodes</span><span class="p">,</span>
+            <span class="n">trunk_node</span><span class="o">=</span><span class="n">trunk_node</span><span class="p">,</span>
+            <span class="n">branch_nodes</span><span class="o">=</span><span class="n">branch_nodes</span><span class="p">,</span>
+            <span class="n">leaf_nodes</span><span class="o">=</span><span class="n">leaf_nodes</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># self.task_dict = self.build_tree(model_cfg, skip_task_setup=False)</span>
+
+        <span class="c1"># used for weight averaging</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_train_state_dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w_avg_step_count</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># decoupled multi-task training requires manual optimization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">automatic_optimization</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_hyperparameters</span><span class="p">(</span>
+            <span class="n">ignore</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;root_nodes&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;trunk_node&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;branch_nodes&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;leaf_nodes&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="SequenceModelTree.train">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.train">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_train_state_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.eval">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.eval">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_train_state_dict</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.get_dataloader">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.get_dataloader">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">):</span>
+        <span class="n">loaders</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">:</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">split</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span><span class="p">:</span>
+                <span class="n">loaders</span><span class="p">[</span><span class="n">l_key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">data_module</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">split</span> <span class="o">==</span> <span class="s2">&quot;val&quot;</span> <span class="ow">and</span> <span class="n">task_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">loaders</span><span class="p">:</span>
+                <span class="n">loaders</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">data_module</span><span class="o">.</span><span class="n">test_dataloader</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">split</span> <span class="o">==</span> <span class="s2">&quot;val&quot;</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid split </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># change val to max_size when lightning upgraded to &gt;1.9.5</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;min_size&quot;</span> <span class="k">if</span> <span class="n">split</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span> <span class="k">else</span> <span class="s2">&quot;max_size_cycle&quot;</span>
+        <span class="k">return</span> <span class="n">CombinedLoader</span><span class="p">(</span><span class="n">loaders</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.training_step">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.training_step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">leaf_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+        <span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">leaf_keys</span><span class="p">)</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimizers</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">linear_probing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">freeze_roots</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">freeze_trunk</span><span class="p">()</span>
+
+        <span class="c1"># fit outcome normalization transforms (if any)</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span>
+            <span class="n">l_batch</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">format_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="n">l_key</span><span class="p">])</span>
+            <span class="n">root_inputs</span> <span class="o">=</span> <span class="n">l_batch</span><span class="p">[</span><span class="s2">&quot;root_inputs&quot;</span><span class="p">]</span>
+            <span class="n">leaf_targets</span> <span class="o">=</span> <span class="n">l_batch</span><span class="p">[</span><span class="s2">&quot;leaf_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_key</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">tree_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">root_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="p">[</span><span class="n">l_key</span><span class="p">])</span>
+            <span class="n">l_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">l_key</span><span class="p">]</span>
+            <span class="c1"># link leaf output to root input if needed (e.g. for masked language model leaves)</span>
+            <span class="n">r_key</span> <span class="o">=</span> <span class="n">l_node</span><span class="o">.</span><span class="n">root_key</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">l_node</span><span class="p">,</span> <span class="s2">&quot;root_key&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">root_outputs</span> <span class="o">=</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">[</span><span class="n">r_key</span><span class="p">]</span> <span class="k">if</span> <span class="n">r_key</span> <span class="ow">in</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">root_outputs</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">leaf_outputs</span> <span class="o">=</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">[</span><span class="n">l_key</span><span class="p">]</span>
+
+            <span class="c1"># get leaf loss and update weights</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">l_node</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span>
+                <span class="n">leaf_outputs</span><span class="o">=</span><span class="n">leaf_outputs</span><span class="p">,</span>
+                <span class="n">root_outputs</span><span class="o">=</span><span class="n">root_outputs</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">leaf_targets</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">manual_backward</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">step_metrics</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">task_key</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="n">batch_size</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">task_key</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="n">l_key</span><span class="p">][</span><span class="s2">&quot;batch_size&quot;</span><span class="p">])</span>
+
+        <span class="c1"># log average task losses</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_key</span><span class="si">}</span><span class="s2">/train_loss&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span> <span class="k">for</span> <span class="n">task_key</span><span class="p">,</span> <span class="n">losses</span> <span class="ow">in</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">step_metrics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_key</span><span class="si">}</span><span class="s2">/train_batch_size&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">)</span> <span class="k">for</span> <span class="n">task_key</span><span class="p">,</span> <span class="n">batch_sizes</span> <span class="ow">in</span> <span class="n">batch_size</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">step_metrics</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.training_step_end">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.training_step_end">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">training_step_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_metrics</span><span class="p">):</span>
+        <span class="c1"># weight averaging</span>
+        <span class="n">w_avg_enabled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">weight_averaging</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">w_avg_enabled</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_w_avg_step_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weight_average_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_w_avg_step_count</span><span class="p">)</span>
+
+        <span class="c1"># step_metrics = pd.DataFrame.from_records(step_metrics)</span>
+        <span class="c1"># step_metrics = step_metrics.mean().to_dict()</span>
+
+        <span class="c1"># task_keys = set()</span>
+        <span class="c1"># for key in step_metrics.keys():</span>
+        <span class="c1">#     task_key = key.split(&quot;/&quot;)[0]</span>
+        <span class="c1">#     task_keys.add(task_key)</span>
+
+        <span class="c1"># for t_key in task_keys:</span>
+        <span class="c1">#     task_metrics = {key: val for key, val in step_metrics.items() if key.startswith(t_key)}</span>
+        <span class="c1">#     batch_size = task_metrics[f&quot;{t_key}/train_batch_size&quot;]</span>
+        <span class="c1">#     del task_metrics[f&quot;{t_key}/train_batch_size&quot;]</span>
+        <span class="c1">#     self.log_dict(task_metrics, logger=True, prog_bar=True, batch_size=batch_size)</span>
+
+        <span class="k">return</span> <span class="n">step_metrics</span></div>
+
+
+        <span class="c1"># log metrics</span>
+        <span class="c1"># step_metrics = {key: sum(val) / len(val) for key, val in step_metrics.items()}</span>
+
+        <span class="c1"># self.log_dict(step_metrics, prog_bar=True)</span>
+
+<div class="viewcode-block" id="SequenceModelTree.training_epoch_end">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.training_epoch_end">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">training_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_metrics</span><span class="p">):</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">step_metrics</span><span class="p">)</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+        <span class="n">task_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">task_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">task_keys</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task_key</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">t_key</span> <span class="ow">in</span> <span class="n">task_keys</span><span class="p">:</span>
+            <span class="n">task_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">t_key</span><span class="p">)}</span>
+            <span class="n">batch_size</span> <span class="o">=</span> <span class="n">task_metrics</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t_key</span><span class="si">}</span><span class="s2">/train_batch_size&quot;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">task_metrics</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t_key</span><span class="si">}</span><span class="s2">/train_batch_size&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">(</span><span class="n">task_metrics</span><span class="p">,</span> <span class="n">prog_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_weight_average_update</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">w_avg_step_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">w_avg_start_epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">weight_averaging</span><span class="o">.</span><span class="n">start_epoch</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_epoch</span> <span class="o">&lt;</span> <span class="n">w_avg_start_epoch</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">w_avg_step_count</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">w_avg_method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">weight_averaging</span><span class="o">.</span><span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span> <span class="ow">or</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">w_avg_method</span> <span class="o">==</span> <span class="s2">&quot;sma&quot;</span><span class="p">:</span>
+            <span class="n">decay_rate</span> <span class="o">=</span> <span class="n">w_avg_step_count</span> <span class="o">/</span> <span class="p">(</span><span class="n">w_avg_step_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">w_avg_method</span> <span class="o">==</span> <span class="s2">&quot;ema&quot;</span><span class="p">:</span>
+            <span class="n">decay_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">weight_averaging</span><span class="o">.</span><span class="n">decay_rate</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid weight averaging method&quot;</span><span class="p">)</span>
+        <span class="n">online_weight_update_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_state_dict</span><span class="p">,</span> <span class="n">decay_rate</span><span class="p">,</span> <span class="n">param_prefixes</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">w_avg_step_count</span> <span class="o">+</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="SequenceModelTree.on_train_epoch_start">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.on_train_epoch_start">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lr_schedulers</span><span class="p">()</span><span class="o">.</span><span class="n">step</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.on_fit_start">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.on_fit_start">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_fit_start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Initialize root node weights with pretrained weights or random initialization if training from scratch</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">reinitialize_roots</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">root_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">root_node</span><span class="o">.</span><span class="n">initialize_weights</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">task_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">l_node</span><span class="p">,</span> <span class="s2">&quot;outcome_transform&quot;</span><span class="p">):</span>
+                <span class="n">transform</span> <span class="o">=</span> <span class="n">l_node</span><span class="o">.</span><span class="n">outcome_transform</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">OutcomeTransform</span><span class="p">):</span>
+                    <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span>
+                    <span class="n">task</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.configure_optimizers">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.configure_optimizers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">configure_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">fit_cfg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">fit_cfg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fit_cfg</span><span class="o">.</span><span class="n">linear_probing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">freeze_roots</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">freeze_trunk</span><span class="p">()</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_trainable_params</span><span class="p">()</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;optimizer&quot;</span><span class="p">:</span> <span class="n">optimizer</span><span class="p">,</span>
+            <span class="s2">&quot;lr_scheduler&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scheduler&quot;</span><span class="p">:</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">fit_cfg</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">)},</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.evaluate">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.validation_step">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.validation_step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">task_key</span><span class="p">,</span> <span class="n">task_batch</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">task_batch</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">task_batch</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span>
+
+            <span class="n">predict_targets</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="s2">&quot;format_targets&quot;</span><span class="p">):</span>
+                <span class="n">predict_targets</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">format_targets</span><span class="p">(</span><span class="n">task_batch</span><span class="p">)[</span><span class="n">task_key</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">predict_targets</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">predict_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">task_batch</span><span class="p">,</span> <span class="n">batch_limit</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">task_batch</span><span class="p">),</span> <span class="n">predict_tasks</span><span class="o">=</span><span class="p">[</span><span class="n">task_key</span><span class="p">])</span>
+
+            <span class="n">step_metrics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prediction_metrics</span><span class="p">(</span>
+                    <span class="n">task_dict</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">,</span>
+                    <span class="n">predict_out</span><span class="o">=</span><span class="n">predict_out</span><span class="p">,</span>
+                    <span class="n">predict_targets</span><span class="o">=</span><span class="n">predict_targets</span><span class="p">,</span>
+                    <span class="n">log_prefix</span><span class="o">=</span><span class="s2">&quot;val&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">step_metrics</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_key</span><span class="si">}</span><span class="s2">/val_batch_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">task_batch</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">step_metrics</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.validation_epoch_end">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.validation_epoch_end">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validation_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_metrics</span><span class="p">):</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">step_metrics</span><span class="p">)</span>
+        <span class="n">step_metrics</span> <span class="o">=</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+        <span class="n">task_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">task_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">task_keys</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task_key</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">t_key</span> <span class="ow">in</span> <span class="n">task_keys</span><span class="p">:</span>
+            <span class="n">task_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">step_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">t_key</span><span class="p">)}</span>
+            <span class="n">batch_size</span> <span class="o">=</span> <span class="n">task_metrics</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t_key</span><span class="si">}</span><span class="s2">/val_batch_size&quot;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">task_metrics</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t_key</span><span class="si">}</span><span class="s2">/val_batch_size&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">(</span><span class="n">task_metrics</span><span class="p">,</span> <span class="n">prog_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span></div>
+
+
+        <span class="c1"># step_metrics = {key: sum(val) / len(val) for key, val in step_metrics.items()}</span>
+        <span class="c1"># self.log_dict(step_metrics, prog_bar=True, batch_size=len(task_batch))</span>
+        <span class="c1"># self.log_dict(step_metrics, prog_bar=True)</span>
+
+<div class="viewcode-block" id="SequenceModelTree.finetune">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.finetune">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">finetune</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cfg</span><span class="p">:</span> <span class="n">DictConfig</span><span class="p">,</span>
+        <span class="n">task_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">log_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">ckpt_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ckpt_cfg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tune_branches</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">reinitialize_leaves</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">linear_probing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tune_branches</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">freeze_branches</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reinitialize_leaves</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialize_leaves</span><span class="p">(</span><span class="n">task_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+            <span class="n">cfg</span><span class="p">,</span>
+            <span class="n">task_dict</span><span class="p">,</span>
+            <span class="n">log_prefix</span><span class="o">=</span><span class="n">log_prefix</span><span class="p">,</span>
+            <span class="n">ckpt_file</span><span class="o">=</span><span class="n">ckpt_file</span><span class="p">,</span>
+            <span class="n">ckpt_cfg</span><span class="o">=</span><span class="n">ckpt_cfg</span><span class="p">,</span>
+            <span class="n">linear_probing</span><span class="o">=</span><span class="n">linear_probing</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+    <span class="c1"># TODO test this feature</span>
+<div class="viewcode-block" id="SequenceModelTree.add_task_nodes">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.add_task_nodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_task_nodes</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">branch_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">task_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">task_cfg</span><span class="p">:</span> <span class="n">OmegaConf</span><span class="p">,</span>
+        <span class="n">branch_cfg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">OmegaConf</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">data_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">task_cfg</span><span class="p">,</span> <span class="n">leaf_key</span><span class="o">=</span><span class="n">task_key</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="k">for</span> <span class="n">ens_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">task_cfg</span><span class="o">.</span><span class="n">ensemble_size</span><span class="p">):</span>
+            <span class="c1"># add branch node</span>
+            <span class="n">b_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">branch_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ens_idx</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">b_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">branch_nodes</span> <span class="ow">and</span> <span class="n">branch_cfg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Branch node </span><span class="si">{</span><span class="n">b_key</span><span class="si">}</span><span class="s2"> not found, you must provide a branch config to add new branches.&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_branch</span><span class="p">(</span><span class="n">branch_cfg</span><span class="p">,</span> <span class="n">b_key</span><span class="p">)</span>
+
+            <span class="c1"># add leaf node</span>
+            <span class="n">leaf_in_dim</span> <span class="o">=</span> <span class="n">branch_cfg</span><span class="o">.</span><span class="n">out_dim</span>
+            <span class="n">l_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">task_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ens_idx</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_leaf</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">create_leaf</span><span class="p">((</span><span class="n">leaf_in_dim</span><span class="p">,</span> <span class="n">b_key</span><span class="p">),</span> <span class="n">l_key</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.initialize_leaves">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.initialize_leaves">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize_leaves</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">task_key</span> <span class="ow">in</span> <span class="n">task_dict</span><span class="p">:</span>
+                <span class="n">l_node</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.build_tree">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.build_tree">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">OmegaConf</span><span class="p">,</span> <span class="n">skip_task_setup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="c1"># create root nodes</span>
+        <span class="k">for</span> <span class="n">root_key</span><span class="p">,</span> <span class="n">root_cfg</span> <span class="ow">in</span> <span class="n">cfg</span><span class="o">.</span><span class="n">roots</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="n">root_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">root_cfg</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># create trunk node</span>
+        <span class="n">root_out_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">r_node</span><span class="o">.</span><span class="n">out_dim</span> <span class="k">for</span> <span class="n">r_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">trunk</span><span class="p">,</span> <span class="s2">&quot;out_dim&quot;</span><span class="p">):</span>
+            <span class="n">cfg</span><span class="o">.</span><span class="n">trunk</span><span class="p">[</span><span class="s2">&quot;out_dim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">root_out_dims</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trunk_node</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span>
+            <span class="n">cfg</span><span class="o">.</span><span class="n">trunk</span><span class="p">,</span>
+            <span class="n">in_dims</span><span class="o">=</span><span class="n">root_out_dims</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># instantiate tasks, branch and leaf nodes</span>
+        <span class="n">task_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">branch_key</span><span class="p">,</span> <span class="n">branch_tasks</span> <span class="ow">in</span> <span class="n">cfg</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">task_key</span><span class="p">,</span> <span class="n">task_cfg</span> <span class="ow">in</span> <span class="n">branch_tasks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># TODO revisit leaf_key argument usage</span>
+                <span class="n">task_cfg</span><span class="o">.</span><span class="n">data_module</span><span class="p">[</span><span class="s2">&quot;skip_task_setup&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">skip_task_setup</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="n">hydra</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span>
+                    <span class="n">task_cfg</span><span class="p">,</span>
+                    <span class="n">leaf_key</span><span class="o">=</span><span class="n">task_key</span><span class="p">,</span>
+                    <span class="n">data_dir</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">task</span>
+                <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">task_cfg</span><span class="o">.</span><span class="n">ensemble_size</span><span class="p">):</span>
+                    <span class="n">b_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">branch_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)))</span>
+                    <span class="n">l_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">task_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)))</span>
+                    <span class="n">cfg</span><span class="o">.</span><span class="n">branches</span><span class="p">[</span><span class="n">branch_key</span><span class="p">][</span><span class="s2">&quot;in_dim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trunk_node</span><span class="o">.</span><span class="n">out_dim</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_branch</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">branches</span><span class="p">[</span><span class="n">branch_key</span><span class="p">],</span> <span class="n">b_key</span><span class="p">)</span>
+                    <span class="n">leaf_in_dim</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">branches</span><span class="p">[</span><span class="n">branch_key</span><span class="p">]</span><span class="o">.</span><span class="n">out_dim</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_leaf</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">create_leaf</span><span class="p">(</span><span class="n">leaf_in_dim</span><span class="p">,</span> <span class="n">b_key</span><span class="p">),</span> <span class="n">l_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">branch_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">branch_nodes</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span> <span class="o">=</span> <span class="n">task_dict</span>
+
+        <span class="k">return</span> <span class="n">task_dict</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.predict">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.predict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">batch_limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">predict_tasks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">format_outputs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">cpu_offload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            predict_inputs: array of inputs (use `AbModel.df_to_pred_inputs` to convert a dataframe)</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            predict_out: dict[str, torch.Tensor] of task prediction outputs for `predict_inputs`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">batch_limit</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">if</span> <span class="n">batch_limit</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">batch_limit</span>
+        <span class="n">num_chunks</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">batch_limit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_chunks</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">batches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">batches</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">]</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">data_mapper</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">cpu_offload</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">x</span>
+
+        <span class="n">batched_out</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="n">k</span><span class="p">:</span> <span class="n">data_mapper</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_batch</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">task_keys</span><span class="o">=</span><span class="n">predict_tasks</span><span class="p">,</span> <span class="n">format_outputs</span><span class="o">=</span><span class="n">format_outputs</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batches</span>
+        <span class="p">]</span>
+        <span class="n">predict_out</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="p">[</span><span class="n">b_out</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">b_out</span> <span class="ow">in</span> <span class="n">batched_out</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">batched_out</span><span class="p">[</span><span class="mi">0</span><span class="p">]}</span>
+        <span class="n">predict_out</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="n">predict_out</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">predict_out</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.prediction_metrics">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.prediction_metrics">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">prediction_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_dict</span><span class="p">,</span> <span class="n">predict_out</span><span class="p">,</span> <span class="n">predict_targets</span><span class="p">,</span> <span class="n">log_prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">task_key</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">task_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">task_key</span> <span class="ow">in</span> <span class="n">out_key</span> <span class="k">for</span> <span class="n">out_key</span> <span class="ow">in</span> <span class="n">predict_out</span><span class="p">]):</span>
+                <span class="k">continue</span>
+
+            <span class="n">targets</span> <span class="o">=</span> <span class="n">predict_targets</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span>
+            <span class="n">task_metrics</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">compute_eval_metrics</span><span class="p">(</span><span class="n">predict_out</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">task_key</span><span class="p">)</span>
+
+            <span class="n">metrics</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_key</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">log_prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">m_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">m_key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">task_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_predict_batch</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">format_outputs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">task_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            aa_seqs: [(AbHC, AbLC, Ag), ...]</span>
+<span class="sd">            predict_tasks: list of task keys indicating which task predictions are required.</span>
+<span class="sd">                Defaults to `None`, which indicates all tasks are required without enumeration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">task_out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">task_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">if</span> <span class="n">task_keys</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">task_keys</span>
+
+        <span class="n">group_leaves</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">group_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">:</span>
+            <span class="c1"># strip off the ensemble index {task_key}_{idx}</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">corrupt_inference_inputs</span><span class="p">:</span>
+                <span class="n">group_leaves</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_key</span><span class="p">)</span>
+                <span class="n">group_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task_key</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_leaves</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">group_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">task_key</span> <span class="ow">in</span> <span class="n">group_tasks</span><span class="p">:</span>
+                <span class="n">group_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">format_inputs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.0</span><span class="p">))</span>
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="n">group_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">group_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="n">group_leaves</span><span class="p">)</span>
+            <span class="n">task_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">group_outputs</span><span class="o">.</span><span class="n">branch_outputs</span><span class="p">)</span>
+            <span class="n">task_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">group_outputs</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">)</span>
+
+        <span class="n">group_leaves</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">group_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">:</span>
+            <span class="c1"># strip off the ensemble index {task_key}_{idx}</span>
+            <span class="n">task_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">l_key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">corrupt_inference_inputs</span><span class="p">:</span>
+                <span class="n">group_leaves</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_key</span><span class="p">)</span>
+                <span class="n">group_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_leaves</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">group_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">task_key</span> <span class="ow">in</span> <span class="n">group_tasks</span><span class="p">:</span>
+                <span class="n">group_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span><span class="o">.</span><span class="n">format_inputs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">corrupt_frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="n">group_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">group_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="n">group_leaves</span><span class="p">)</span>
+            <span class="n">task_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">group_outputs</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">)</span>
+            <span class="n">task_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">group_outputs</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">)</span>
+
+        <span class="n">task_leaves</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">task_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_dict</span><span class="p">:</span>
+            <span class="n">task_leaves</span><span class="p">[</span><span class="n">task_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">l_key</span> <span class="k">for</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">l_key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">task_key</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">format_outputs</span><span class="p">:</span>
+            <span class="n">predict_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_task_outputs</span><span class="p">(</span>
+                <span class="n">task_out</span><span class="o">=</span><span class="n">task_out</span><span class="p">,</span>
+                <span class="n">task_keys</span><span class="o">=</span><span class="n">task_keys</span><span class="p">,</span>
+                <span class="n">task_leaves</span><span class="o">=</span><span class="n">task_leaves</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">predict_out</span> <span class="o">=</span> <span class="n">task_out</span>
+
+        <span class="k">return</span> <span class="n">predict_out</span>
+
+<div class="viewcode-block" id="SequenceModelTree.format_task_outputs">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.format_task_outputs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">format_task_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_out</span><span class="p">,</span> <span class="n">task_keys</span><span class="p">,</span> <span class="n">task_leaves</span><span class="p">):</span>
+        <span class="c1"># format leaf output to more useful form</span>
+        <span class="n">predict_out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">t_key</span> <span class="ow">in</span> <span class="n">task_keys</span><span class="p">:</span>
+            <span class="c1"># classifier leaves</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">l_out</span>
+                <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_out</span> <span class="ow">in</span> <span class="n">task_out</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="n">task_leaves</span><span class="p">[</span><span class="n">t_key</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">l_key</span><span class="p">])</span> <span class="ow">is</span> <span class="n">ClassifierLeaf</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">predict_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">format_classifier_ensemble_output</span><span class="p">(</span><span class="n">leaf_outputs</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">task_key</span><span class="o">=</span><span class="n">t_key</span><span class="p">))</span>
+
+            <span class="c1"># regressor leaves</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">l_out</span>
+                <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_out</span> <span class="ow">in</span> <span class="n">task_out</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="n">task_leaves</span><span class="p">[</span><span class="n">t_key</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">l_key</span><span class="p">],</span> <span class="n">RegressorLeaf</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">predict_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">format_regressor_ensemble_output</span><span class="p">(</span><span class="n">leaf_outputs</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">task_key</span><span class="o">=</span><span class="n">t_key</span><span class="p">))</span>
+
+            <span class="c1"># denoising language model leaves</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">l_out</span>
+                <span class="k">for</span> <span class="n">l_key</span><span class="p">,</span> <span class="n">l_out</span> <span class="ow">in</span> <span class="n">task_out</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="n">task_leaves</span><span class="p">[</span><span class="n">t_key</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">l_key</span><span class="p">],</span> <span class="n">DenoisingLanguageModelLeaf</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">root_keys</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">leaf_nodes</span><span class="p">[</span><span class="n">l_key</span><span class="p">]</span><span class="o">.</span><span class="n">root_key</span> <span class="k">for</span> <span class="n">l_key</span> <span class="ow">in</span> <span class="n">task_leaves</span><span class="p">[</span><span class="n">t_key</span><span class="p">]]</span>
+                <span class="n">root_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">task_out</span><span class="p">[</span><span class="n">r_key</span><span class="p">]</span> <span class="k">for</span> <span class="n">r_key</span> <span class="ow">in</span> <span class="n">root_keys</span><span class="p">]</span>
+                <span class="n">predict_out</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">format_denoising_lm_ensemble_output</span><span class="p">(</span><span class="n">leaf_outputs</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">root_outputs</span><span class="o">=</span><span class="n">root_outputs</span><span class="p">,</span> <span class="n">task_key</span><span class="o">=</span><span class="n">t_key</span><span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">predict_out</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.call_from_str_array">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.call_from_str_array">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_from_str_array</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">str_array</span><span class="p">,</span> <span class="n">root_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">root_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_key</span> <span class="o">=</span> <span class="n">_infer_root_key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">)</span>
+        <span class="n">root_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">root_key</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;seq_array&quot;</span><span class="p">:</span> <span class="n">str_array</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">(</span><span class="n">root_inputs</span><span class="o">=</span><span class="n">root_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="n">leaf_keys</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.call_from_tok_idxs">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.call_from_tok_idxs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_from_tok_idxs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tok_idxs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">,</span>
+        <span class="n">root_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">leaf_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">root_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_key</span> <span class="o">=</span> <span class="n">_infer_root_key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">)</span>
+        <span class="n">root_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">root_key</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tgt_tok_idxs&quot;</span><span class="p">:</span> <span class="n">tok_idxs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">(</span><span class="n">root_inputs</span><span class="o">=</span><span class="n">root_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="n">leaf_keys</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.call_from_tok_embs">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.call_from_tok_embs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_from_tok_embs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tok_embs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">,</span>
+        <span class="n">root_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">leaf_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">root_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_key</span> <span class="o">=</span> <span class="n">_infer_root_key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">)</span>
+        <span class="n">root_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">root_key</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;src_tok_embs&quot;</span><span class="p">:</span> <span class="n">tok_embs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">(</span><span class="n">root_inputs</span><span class="o">=</span><span class="n">root_inputs</span><span class="p">,</span> <span class="n">leaf_keys</span><span class="o">=</span><span class="n">leaf_keys</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SequenceModelTree.get_tokenizer">
+<a class="viewcode-back" href="../../../../_autosummary/cortex.model.tree.html#cortex.model.tree.SequenceModelTree.get_tokenizer">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tokenizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">root_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_key</span> <span class="o">=</span> <span class="n">_infer_root_key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_nodes</span><span class="p">[</span><span class="n">root_key</span><span class="p">]</span><span class="o">.</span><span class="n">tokenizer</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_infer_root_key</span><span class="p">(</span><span class="n">root_nodes</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">root_nodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">root_nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;root_key must be provided when there are multiple root nodes&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_param_prefixes</span><span class="p">(</span><span class="n">tree_outputs</span><span class="p">):</span>
+    <span class="n">param_prefixes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">root_key</span> <span class="ow">in</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">root_outputs</span><span class="p">:</span>
+        <span class="n">param_prefixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;root_nodes.</span><span class="si">{</span><span class="n">root_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># for trunk_key in tree_output.trunk_output:</span>
+    <span class="c1">#     param_prefixes.append(f&quot;trunk_node.{trunk_key}&quot;)</span>
+
+    <span class="k">for</span> <span class="n">branch_key</span> <span class="ow">in</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">branch_outputs</span><span class="p">:</span>
+        <span class="n">param_prefixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;branch_nodes.</span><span class="si">{</span><span class="n">branch_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">leaf_key</span> <span class="ow">in</span> <span class="n">tree_outputs</span><span class="o">.</span><span class="n">leaf_outputs</span><span class="p">:</span>
+        <span class="n">param_prefixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;leaf_nodes.</span><span class="si">{</span><span class="n">leaf_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">param_prefixes</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Samuel D. Stanton
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
