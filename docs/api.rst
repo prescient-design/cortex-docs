@@ -21,21 +21,21 @@ cortex.attribution
    :imported-members:
 
 cortex.corruption
------------------
+----------------
 .. automodule:: cortex.corruption
    :members:
    :undoc-members:
    :imported-members:
 
 cortex.data
------------
+----------
 .. automodule:: cortex.data
    :members:
    :undoc-members:
    :imported-members:
 
 cortex.io
----------
+--------
 .. automodule:: cortex.io
    :members:
    :undoc-members:
@@ -77,7 +77,7 @@ cortex.task
    :imported-members:
 
 cortex.tokenization
-------------------
+-----------------
 .. automodule:: cortex.tokenization
    :members:
    :undoc-members:
